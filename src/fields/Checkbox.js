@@ -1,7 +1,10 @@
 import * as React from "react";
+import { FormControlLabel, Checkbox } from "@mui/material";
 
-function Checkbox() {
-  return <></>;
+function CheckboxField(props) {
+  return (
+    <FormControlLabel control={<Checkbox />} label={props.label} {...props} />
+  );
 }
 
-export default Checkbox;
+export default CheckboxField;
