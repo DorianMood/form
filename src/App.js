@@ -9,6 +9,16 @@ import {
   IconButton,
   Autocomplete,
   Stack,
+  ButtonGroup,
+  Button,
+  Collapse,
+  RadioGroup,
+  Radio,
+  FormLabel,
+  FormControlLabel,
+  ToggleButtonGroup,
+  ToggleButton,
+  FormGroup,
 } from "@mui/material";
 import { Map, YMaps } from "react-yandex-maps";
 
@@ -21,14 +31,61 @@ import Toggle from "./fields/Toggle";
 import DropDown from "./fields/DropDown";
 import FieldSet from "./FieldSet";
 
+const objects = {
+  rent: ["офис", "торговая площадь", "склад", "производство", "ПСН", "здание"],
+  sale: [
+    "офис",
+    "торговая площадь",
+    "склад",
+    "производство",
+    "ПСН",
+    "здание",
+    "готовый бизнес",
+  ],
+};
+
 function App() {
   const { control, handleSubmit } = useForm({
     defaultValues: {},
   });
+  const [dealType, setDealType] = React.useState();
 
   return (
     <Container>
       <Form name="Форма" onSubmit={handleSubmit}>
+        <FieldSet name="type" legend="Тип объявления">
+          <Grid container spacing={2}>
+            <Grid item sm={12}>
+              <FormLabel>Тип сделки</FormLabel>
+              <FormGroup>
+                <ToggleButtonGroup
+                  value={dealType}
+                  exclusive
+                  onChange={(_, newValue) => setDealType(newValue)}
+                >
+                  <ToggleButton value="rent">Аренда</ToggleButton>
+                  <ToggleButton value="sale">Продажа</ToggleButton>
+                </ToggleButtonGroup>
+              </FormGroup>
+            </Grid>
+            <Grid item sm={12}>
+              <Collapse in={dealType}>
+                <FormLabel>Объект</FormLabel>
+                <RadioGroup>
+                  {dealType &&
+                    objects[dealType].map((item, index) => (
+                      <FormControlLabel
+                        key={index}
+                        value={item}
+                        label={item}
+                        control={<Radio />}
+                      />
+                    ))}
+                </RadioGroup>
+              </Collapse>
+            </Grid>
+          </Grid>
+        </FieldSet>
         <FieldSet name="general" legend="Основные">
           <Grid container spacing={2}>
             <Grid item sm={6}>
