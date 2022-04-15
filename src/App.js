@@ -11,6 +11,9 @@ import {
   Stack,
   ButtonGroup,
   Button,
+  Select,
+  Switch,
+  Checkbox,
   Collapse,
   RadioGroup,
   Radio,
@@ -19,6 +22,7 @@ import {
   ToggleButtonGroup,
   ToggleButton,
   FormGroup,
+  MenuItem,
 } from "@mui/material";
 import { Map, YMaps } from "react-yandex-maps";
 
@@ -68,23 +72,311 @@ function App() {
                 </ToggleButtonGroup>
               </FormGroup>
             </Grid>
-            <Grid item sm={12}>
+            <Grid item sm={4}>
               <Collapse in={dealType}>
-                <FormLabel>Объект</FormLabel>
-                <RadioGroup>
-                  {dealType &&
-                    objects[dealType].map((item, index) => (
-                      <FormControlLabel
-                        key={index}
-                        value={item}
-                        label={item}
-                        control={<Radio />}
-                      />
-                    ))}
-                </RadioGroup>
+                {dealType && (
+                  <DropDown options={objects[dealType]} label="Объект" />
+                )}
+              </Collapse>
+            </Grid>
+            <Grid item sm={4}>
+              <Collapse in={dealType}>
+                <DropDown
+                  options={["1", "2"]}
+                  label="Тип готового бизнеса список"
+                />
+              </Collapse>
+            </Grid>
+            <Grid item sm={4}>
+              <Collapse in={dealType}>
+                <FormControlLabel
+                  control={<Switch defaultChecked />}
+                  label="Видимость объявления"
+                />
               </Collapse>
             </Grid>
           </Grid>
+        </FieldSet>
+        <FieldSet name="general" legend="Общие">
+          <Grid container spacing={2}>
+            <Grid item xs={3}>
+              <TextField label="Адрес поиск по справочнику" />
+            </Grid>
+            <Grid item xs={3}>
+              <TextField label="Юридический адрес" />
+            </Grid>
+            <Grid item xs={6}>
+              <FormControlLabel
+                control={<Switch />}
+                label="Скрыть точный адрес в объявлении"
+              />
+            </Grid>
+            <Grid item xs={3}>
+              <TextField label="Название ЖК" />
+            </Grid>
+            <Grid item xs={3}>
+              <TextField
+                label="Корпус"
+                type="number"
+                InputProps={{ inputProps: { min: 0 } }}
+              />
+            </Grid>
+            <Grid item xs={3}>
+              <TextField
+                label="Кадастровый номер"
+                type="number"
+                InputProps={{ inputProps: { min: 0 } }}
+              />
+            </Grid>
+            <Grid item xs={3}>
+              <TextField label="Номер налоговой" />
+            </Grid>
+            <Grid item xs={3}>
+              Тип помещения список
+            </Grid>
+            <Grid item xs={3}>
+              <TextField
+                label="Общая площадь число"
+                type="number"
+                InputProps={{
+                  inputProps: { min: 0 },
+                  endAdornment: <InputAdornment>м2</InputAdornment>,
+                }}
+              />
+            </Grid>
+            <Grid item xs={6}>
+              <FormControlLabel
+                control={<Switch />}
+                label="Возможна аренда/продажа частями"
+              />
+            </Grid>
+            <Grid item xs={3}>
+              <TextField
+                label="Этаж целое число"
+                type="number"
+                InputProps={{ inputProps: { min: 0, step: 1 } }}
+              />
+            </Grid>
+            <Grid item xs={3}>
+              <TextField
+                label="Этажность целое число"
+                type="number"
+                InputProps={{ inputProps: { min: 0, step: 1 } }}
+              />
+            </Grid>
+            <Grid item xs={3}>
+              <TextField
+                label="Высота потолков"
+                type="number"
+                InputProps={{
+                  inputProps: { min: 0, step: 0.01 },
+                  endAdornment: <InputAdornment>м</InputAdornment>,
+                }}
+              />
+            </Grid>
+            <Grid item xs={3}>
+              <FormControlLabel control={<Switch />} label="Витринные окна" />
+            </Grid>
+            <Grid item xs={3}>
+              <FormControlLabel control={<Switch />} label="Помещение занято" />
+            </Grid>
+            <Grid item xs={3}>
+              <TextField label="Планировка" />
+            </Grid>
+            <Grid item xs={3}>
+              <TextField label="Сетка колон" />
+            </Grid>
+            <Grid item xs={3}>
+              <TextField label="Материал пола" />
+            </Grid>
+          </Grid>
+        </FieldSet>
+        <FieldSet name="communications" legend="Коммуникации">
+          <TextField label="Ворота Лифты (для складов и производства)" />
+          <TextField
+            label="Лифты (для зданий)"
+            type="number"
+            InputProps={{ inputProps: { min: 0, step: 1 } }}
+          />
+          <FormControlLabel
+            control={<Switch />}
+            label="Крановое оборудование"
+          />
+          <TextField
+            label="Количество мокрых точек"
+            type="number"
+            InputProps={{ inputProps: { min: 0, step: 1 } }}
+          />
+          <TextField
+            label="Электрическая мощность"
+            type="number"
+            InputProps={{
+              inputProps: { min: 0, step: 0.01 },
+              endAdornment: <InputAdornment>Ватт</InputAdornment>,
+            }}
+          />
+          Назначение список
+          <FormControlLabel control={<Switch />} label="Вентиляция" />
+          <FormControlLabel control={<Switch />} label="Кондиционирование" />
+          <FormControlLabel control={<Switch />} label="Отопление" />
+          <FormControlLabel
+            control={<Switch />}
+            label="Система пожаротушения"
+          />
+          <TextField label="Инфраструктура" multiline />
+          <TextField label="Дополнительные услуги" multiline />
+          <TextField label="Вход" />
+          <TextField label="Доступ" />
+        </FieldSet>
+        <FieldSet name="furniture" legend="Мебель и оборудование">
+          <Grid container spacing={2}>
+            <Grid item xs={4}>
+              <TextField label="Оборудование" multiline fullWidth />
+            </Grid>
+            <Grid item xs={4}>
+              <TextField label="Состояние" multiline fullWidth />
+            </Grid>
+            <Grid item xs={4}>
+              <TextField label="Мебель" multiline fullWidth />
+            </Grid>
+          </Grid>
+        </FieldSet>
+        <FieldSet name="parking" legend="Парковка">
+          <FormControlLabel control={<Switch />} label="Парковка (для офиса)" />
+          <TextField
+            label="Количество мест"
+            type="number"
+            InputProps={{ inputProps: { min: 0 } }}
+          />
+          <TextField
+            label="Стоимость (парковки)"
+            type="number"
+            InputProps={{
+              inputProps: { min: 0, step: 1 },
+              endAdornment: <InputAdornment>₽</InputAdornment>,
+            }}
+          />
+          <FormControlLabel
+            control={<Switch />}
+            label="Парковка (для склада)"
+          />
+          <TextField label="Тип парковки" />
+          <TextField
+            label="Стоимость въезда"
+            type="number"
+            InputProps={{
+              inputProps: { min: 0, step: 1 },
+              endAdornment: <InputAdornment>₽</InputAdornment>,
+            }}
+          />
+        </FieldSet>
+        <FieldSet name="building" legend="Постройка">
+          <TextField label="Название (задания)" />
+          <TextField
+            label="Год постройки"
+            type="number"
+            InputProps={{ inputProps: { min: 0 } }}
+          />
+          Тип здания список
+          <TextField label="Класс здания" />
+          <TextField
+            label="Площадь здания число"
+            type="number"
+            InputProps={{
+              inputProps: { min: 0, step: 1 },
+              endAdornment: <InputAdornment>м2</InputAdornment>,
+            }}
+          />
+          <TextField
+            label="Линия"
+            type="number"
+            InputProps={{ inputProps: { min: 0 } }}
+          />
+          <TextField label="Девелопер" />
+          <TextField label="УК" />
+        </FieldSet>
+        <FieldSet name="land" legend="Земля">
+          <TextField
+            label="Участок (площадь)"
+            type="number"
+            InputProps={{
+              inputProps: { min: 0, step: 1 },
+              endAdornment: <InputAdornment>м2</InputAdornment>,
+            }}
+          />
+          <TextField label="Участок (в собственности/в аренде)" />
+          <TextField label="Категория" />
+        </FieldSet>
+        <FieldSet name="description" legend="Описание">
+          Фотографии Видео
+          <TextField label="Описание текст" multiline />
+        </FieldSet>
+        <FieldSet name="other" legend="Разное">
+          Часы работы Дни недели
+          <TextField
+            label="Месячная прибыль"
+            type="number"
+            InputProps={{
+              inputProps: { min: 0, step: 1 },
+              endAdornment: <InputAdornment>₽</InputAdornment>,
+            }}
+          />
+          Арендная плата/Цена (тип)
+          <TextField
+            label="Арендная плата/Цена число"
+            type="number"
+            InputProps={{
+              inputProps: { min: 0, step: 1 },
+              endAdornment: <InputAdornment>₽</InputAdornment>,
+            }}
+          />
+          Налог список
+          <TextField label="В ставку включены" />
+          Тип аренды список
+          <TextField
+            label="Минимальный срок аренды от"
+            type="number"
+            InputProps={{
+              inputProps: { min: 0, step: 1 },
+              endAdornment: <InputAdornment>мес.</InputAdornment>,
+            }}
+          />
+          Арендные каникулы
+          <TextField
+            label="Обеспечительный платеж"
+            type="number"
+            InputProps={{
+              inputProps: { min: 0, step: 1 },
+              endAdornment: <InputAdornment>₽</InputAdornment>,
+            }}
+          />
+          Предоплата список
+          <TextField
+            label="% от клиента галочка/число"
+            type="number"
+            InputProps={{
+              inputProps: { min: 0, step: 1 },
+              endAdornment: <InputAdornment>%</InputAdornment>,
+            }}
+          />
+          <TextField
+            label="% от другого агента галочка/число"
+            type="number"
+            InputProps={{
+              inputProps: { min: 0, step: 1 },
+              endAdornment: <InputAdornment>%</InputAdornment>,
+            }}
+          />
+          Переуступка права аренды Недвижимость
+          <TextField
+            label="Бонус агенту"
+            type="number"
+            InputProps={{ inputProps: { min: 0 } }}
+          />
+        </FieldSet>
+        <FieldSet name="contacts" legend="Контакты">
+          телефон номер телефона
+          <TextField label="условия размещения объявления" multiline />
         </FieldSet>
         <FieldSet name="general" legend="Основные">
           <Grid container spacing={2}>

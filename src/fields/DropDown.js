@@ -7,7 +7,11 @@ function DropDown(props) {
   return (
     <FormControl fullWidth>
       <InputLabel>{props.label}</InputLabel>
-      <Select value={value} onChange={(event) => setValue(event.target.value)}>
+      <Select
+        value={value}
+        onChange={(event) => setValue(event.target.value)}
+        label={props.label}
+      >
         {props.options.map((item, index) => (
           <MenuItem value={item} key={index}>
             {item}
