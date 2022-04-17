@@ -15,8 +15,6 @@ import {
   Switch,
   Checkbox,
   Collapse,
-  RadioGroup,
-  Radio,
   FormLabel,
   FormControlLabel,
   ToggleButtonGroup,
@@ -27,6 +25,7 @@ import {
 import { Map, YMaps } from "react-yandex-maps";
 
 import PhotoCameraIcon from "@mui/icons-material/PhotoCamera";
+import VideocamIcon from "@mui/icons-material/Videocam";
 
 import "./App.css";
 import Form from "./Form";
@@ -132,7 +131,7 @@ function App() {
               <TextField label="Номер налоговой" />
             </Grid>
             <Grid item xs={3}>
-              Тип помещения список
+              <DropDown options={["1", "2"]} label="Тип помещения" />
             </Grid>
             <Grid item xs={3}>
               <TextField
@@ -192,41 +191,77 @@ function App() {
           </Grid>
         </FieldSet>
         <FieldSet name="communications" legend="Коммуникации">
-          <TextField label="Ворота Лифты (для складов и производства)" />
-          <TextField
-            label="Лифты (для зданий)"
-            type="number"
-            InputProps={{ inputProps: { min: 0, step: 1 } }}
-          />
-          <FormControlLabel
-            control={<Switch />}
-            label="Крановое оборудование"
-          />
-          <TextField
-            label="Количество мокрых точек"
-            type="number"
-            InputProps={{ inputProps: { min: 0, step: 1 } }}
-          />
-          <TextField
-            label="Электрическая мощность"
-            type="number"
-            InputProps={{
-              inputProps: { min: 0, step: 0.01 },
-              endAdornment: <InputAdornment>Ватт</InputAdornment>,
-            }}
-          />
-          Назначение список
-          <FormControlLabel control={<Switch />} label="Вентиляция" />
-          <FormControlLabel control={<Switch />} label="Кондиционирование" />
-          <FormControlLabel control={<Switch />} label="Отопление" />
-          <FormControlLabel
-            control={<Switch />}
-            label="Система пожаротушения"
-          />
-          <TextField label="Инфраструктура" multiline />
-          <TextField label="Дополнительные услуги" multiline />
-          <TextField label="Вход" />
-          <TextField label="Доступ" />
+          <Grid container spacing={2}>
+            <Grid item xs={3}>
+              <TextField label="Лифты (для складов и производства)" />
+            </Grid>
+            <Grid item xs={3}>
+              <TextField
+                label="Лифты (для зданий)"
+                type="number"
+                InputProps={{ inputProps: { min: 0, step: 1 } }}
+              />
+            </Grid>
+            <Grid item xs={3}>
+              <TextField
+                label="Количество мокрых точек"
+                type="number"
+                InputProps={{ inputProps: { min: 0, step: 1 } }}
+              />
+            </Grid>
+            <Grid item xs={3}>
+              <TextField
+                label="Электрическая мощность"
+                type="number"
+                InputProps={{
+                  inputProps: { min: 0, step: 0.01 },
+                  endAdornment: <InputAdornment>Ватт</InputAdornment>,
+                }}
+              />
+            </Grid>
+            <Grid item xs={3}>
+              <DropDown options={["1", "2"]} label="Назначение" />
+            </Grid>
+            <Grid item xs={3}>
+              <TextField label="Инфраструктура" multiline />
+            </Grid>
+            <Grid item xs={3}>
+              <TextField label="Дополнительные услуги" multiline />
+            </Grid>
+            <Grid item xs={3}>
+              <TextField label="Вход" />
+            </Grid>
+            <Grid item xs={3}>
+              <TextField label="Доступ" />
+            </Grid>
+            <Grid item xs={2}>
+              <FormControlLabel control={<Switch />} label="Ворота" />
+            </Grid>
+            <Grid item xs={2}>
+              <FormControlLabel
+                control={<Switch />}
+                label="Крановое оборудование"
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <FormControlLabel control={<Switch />} label="Вентиляция" />
+            </Grid>
+            <Grid item xs={3}>
+              <FormControlLabel
+                control={<Switch />}
+                label="Кондиционирование"
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <FormControlLabel control={<Switch />} label="Отопление" />
+            </Grid>
+            <Grid item xs={2}>
+              <FormControlLabel
+                control={<Switch />}
+                label="Система пожаротушения"
+              />
+            </Grid>
+          </Grid>
         </FieldSet>
         <FieldSet name="furniture" legend="Мебель и оборудование">
           <Grid container spacing={2}>
@@ -242,141 +277,274 @@ function App() {
           </Grid>
         </FieldSet>
         <FieldSet name="parking" legend="Парковка">
-          <FormControlLabel control={<Switch />} label="Парковка (для офиса)" />
-          <TextField
-            label="Количество мест"
-            type="number"
-            InputProps={{ inputProps: { min: 0 } }}
-          />
-          <TextField
-            label="Стоимость (парковки)"
-            type="number"
-            InputProps={{
-              inputProps: { min: 0, step: 1 },
-              endAdornment: <InputAdornment>₽</InputAdornment>,
-            }}
-          />
-          <FormControlLabel
-            control={<Switch />}
-            label="Парковка (для склада)"
-          />
-          <TextField label="Тип парковки" />
-          <TextField
-            label="Стоимость въезда"
-            type="number"
-            InputProps={{
-              inputProps: { min: 0, step: 1 },
-              endAdornment: <InputAdornment>₽</InputAdornment>,
-            }}
-          />
+          <Grid container spacing={2}>
+            <Grid item xs={3}>
+              <FormControlLabel
+                control={<Switch />}
+                label="Парковка (для офиса)"
+              />
+            </Grid>
+            <Grid item xs={9}>
+              <FormControlLabel
+                control={<Switch />}
+                label="Парковка (для склада)"
+              />
+            </Grid>
+            <Grid item xs={3}>
+              <TextField
+                label="Количество мест"
+                type="number"
+                InputProps={{ inputProps: { min: 0 } }}
+              />
+            </Grid>
+            <Grid item xs={3}>
+              <TextField
+                label="Стоимость (парковки)"
+                type="number"
+                InputProps={{
+                  inputProps: { min: 0, step: 1 },
+                  endAdornment: <InputAdornment>₽</InputAdornment>,
+                }}
+              />
+            </Grid>
+            <Grid item xs={3}>
+              <TextField label="Тип парковки" />
+            </Grid>
+            <Grid item xs={3}>
+              <TextField
+                label="Стоимость въезда"
+                type="number"
+                InputProps={{
+                  inputProps: { min: 0, step: 1 },
+                  endAdornment: <InputAdornment>₽</InputAdornment>,
+                }}
+              />
+            </Grid>
+          </Grid>
         </FieldSet>
         <FieldSet name="building" legend="Постройка">
-          <TextField label="Название (задания)" />
-          <TextField
-            label="Год постройки"
-            type="number"
-            InputProps={{ inputProps: { min: 0 } }}
-          />
-          Тип здания список
-          <TextField label="Класс здания" />
-          <TextField
-            label="Площадь здания число"
-            type="number"
-            InputProps={{
-              inputProps: { min: 0, step: 1 },
-              endAdornment: <InputAdornment>м2</InputAdornment>,
-            }}
-          />
-          <TextField
-            label="Линия"
-            type="number"
-            InputProps={{ inputProps: { min: 0 } }}
-          />
-          <TextField label="Девелопер" />
-          <TextField label="УК" />
+          <Grid container spacing={2}>
+            <Grid item xs={3}>
+              <TextField label="Название (задания)" />
+            </Grid>
+            <Grid item xs={3}>
+              <TextField
+                label="Год постройки"
+                type="number"
+                InputProps={{ inputProps: { min: 0 } }}
+              />
+            </Grid>
+            <Grid item xs={3}>
+              <DropDown options={["1", "2"]} label="Тип здания" />
+            </Grid>
+            <Grid item xs={3}>
+              <TextField label="Класс здания" />
+            </Grid>
+            <Grid item xs={3}>
+              <TextField
+                label="Площадь здания число"
+                type="number"
+                InputProps={{
+                  inputProps: { min: 0, step: 1 },
+                  endAdornment: <InputAdornment>м2</InputAdornment>,
+                }}
+              />
+            </Grid>
+            <Grid item xs={3}>
+              <TextField
+                label="Линия"
+                type="number"
+                InputProps={{ inputProps: { min: 0 } }}
+              />
+            </Grid>
+            <Grid item xs={3}>
+              <TextField label="Девелопер" />
+            </Grid>
+            <Grid item xs={3}>
+              <TextField label="УК" />
+            </Grid>
+          </Grid>
         </FieldSet>
         <FieldSet name="land" legend="Земля">
-          <TextField
-            label="Участок (площадь)"
-            type="number"
-            InputProps={{
-              inputProps: { min: 0, step: 1 },
-              endAdornment: <InputAdornment>м2</InputAdornment>,
-            }}
-          />
-          <TextField label="Участок (в собственности/в аренде)" />
-          <TextField label="Категория" />
+          <Grid container spacing={2}>
+            <Grid item xs={4}>
+              <TextField
+                label="Участок (площадь)"
+                type="number"
+                InputProps={{
+                  inputProps: { min: 0, step: 1 },
+                  endAdornment: <InputAdornment>м2</InputAdornment>,
+                }}
+              />
+            </Grid>
+            <Grid item xs={4}>
+              <TextField label="Участок (в собственности/в аренде)" />
+            </Grid>
+            <Grid item xs={4}>
+              <TextField label="Категория" />
+            </Grid>
+          </Grid>
         </FieldSet>
         <FieldSet name="description" legend="Описание">
-          Фотографии Видео
-          <TextField label="Описание текст" multiline />
+          <Grid container spacing={2}>
+            <Grid item xs={6}>
+              <label htmlFor="icon-button-file">
+                <Input
+                  accept="image/*"
+                  id="icon-button-file"
+                  type="file"
+                  style={{ display: "none" }}
+                />
+                <IconButton
+                  color="primary"
+                  aria-label="upload picture"
+                  component="span"
+                >
+                  <PhotoCameraIcon />
+                </IconButton>
+              </label>
+            </Grid>
+            <Grid item xs={6}>
+              <label htmlFor="icon-button-file">
+                <Input
+                  accept="video/*"
+                  id="icon-button-file"
+                  type="file"
+                  style={{ display: "none" }}
+                />
+                <IconButton
+                  color="primary"
+                  aria-label="upload picture"
+                  component="span"
+                >
+                  <VideocamIcon />
+                </IconButton>
+              </label>
+            </Grid>
+            <Grid item xs={12}>
+              <TextField label="Описание текст" multiline fullWidth />
+            </Grid>
+          </Grid>
         </FieldSet>
         <FieldSet name="other" legend="Разное">
-          Часы работы Дни недели
-          <TextField
-            label="Месячная прибыль"
-            type="number"
-            InputProps={{
-              inputProps: { min: 0, step: 1 },
-              endAdornment: <InputAdornment>₽</InputAdornment>,
-            }}
-          />
-          Арендная плата/Цена (тип)
-          <TextField
-            label="Арендная плата/Цена число"
-            type="number"
-            InputProps={{
-              inputProps: { min: 0, step: 1 },
-              endAdornment: <InputAdornment>₽</InputAdornment>,
-            }}
-          />
-          Налог список
-          <TextField label="В ставку включены" />
-          Тип аренды список
-          <TextField
-            label="Минимальный срок аренды от"
-            type="number"
-            InputProps={{
-              inputProps: { min: 0, step: 1 },
-              endAdornment: <InputAdornment>мес.</InputAdornment>,
-            }}
-          />
-          Арендные каникулы
-          <TextField
-            label="Обеспечительный платеж"
-            type="number"
-            InputProps={{
-              inputProps: { min: 0, step: 1 },
-              endAdornment: <InputAdornment>₽</InputAdornment>,
-            }}
-          />
-          Предоплата список
-          <TextField
-            label="% от клиента галочка/число"
-            type="number"
-            InputProps={{
-              inputProps: { min: 0, step: 1 },
-              endAdornment: <InputAdornment>%</InputAdornment>,
-            }}
-          />
-          <TextField
-            label="% от другого агента галочка/число"
-            type="number"
-            InputProps={{
-              inputProps: { min: 0, step: 1 },
-              endAdornment: <InputAdornment>%</InputAdornment>,
-            }}
-          />
-          Переуступка права аренды Недвижимость
-          <TextField
-            label="Бонус агенту"
-            type="number"
-            InputProps={{ inputProps: { min: 0 } }}
-          />
+          <Grid container spacing={2}>
+            <Grid item xs={3}>
+              Часы работы
+            </Grid>
+            <Grid item xs={3}>
+              Дни недели
+            </Grid>
+            <Grid item xs={3}>
+              <TextField
+                label="Месячная прибыль"
+                type="number"
+                InputProps={{
+                  inputProps: { min: 0, step: 1 },
+                  endAdornment: <InputAdornment>₽</InputAdornment>,
+                }}
+              />
+            </Grid>
+            <Grid item xs={3}>
+              Арендная плата/Цена (тип)
+            </Grid>
+            <Grid item xs={3}>
+              <TextField
+                label="Арендная плата/Цена"
+                type="number"
+                InputProps={{
+                  inputProps: { min: 0, step: 1 },
+                  endAdornment: <InputAdornment>₽</InputAdornment>,
+                }}
+              />
+            </Grid>
+            <Grid item xs={3}>
+              <DropDown options={["1", "2"]} label="Налог список" />
+            </Grid>
+            <Grid item xs={3}>
+              <TextField label="В ставку включены" />
+            </Grid>
+            <Grid item xs={3}>
+              <DropDown options={["1", "2"]} label="Тип аренды список" />
+            </Grid>
+            <Grid item xs={4}>
+              <TextField
+                label="Минимальный срок аренды от"
+                type="number"
+                InputProps={{
+                  inputProps: { min: 0, step: 1 },
+                  endAdornment: <InputAdornment>мес.</InputAdornment>,
+                }}
+                fullWidth
+              />
+            </Grid>
+            <Grid item xs={3}>
+              Арендные каникулы
+            </Grid>
+            <Grid item xs={3}>
+              <TextField
+                label="Обеспечительный платеж"
+                type="number"
+                InputProps={{
+                  inputProps: { min: 0, step: 1 },
+                  endAdornment: <InputAdornment>₽</InputAdornment>,
+                }}
+                fullWidth
+              />
+            </Grid>
+            <Grid item xs={3}>
+              <DropDown options={["1", "2"]} label="Предоплата список" />
+            </Grid>
+            <Grid item xs={3}>
+              <TextField
+                label="% от клиента галочка/число"
+                type="number"
+                InputProps={{
+                  inputProps: { min: 0, step: 1 },
+                  endAdornment: <InputAdornment>%</InputAdornment>,
+                }}
+                fullWidth
+              />
+            </Grid>
+            <Grid item xs={3}>
+              <TextField
+                label="% от другого агента галочка/число"
+                type="number"
+                InputProps={{
+                  inputProps: { min: 0, step: 1 },
+                  endAdornment: <InputAdornment>%</InputAdornment>,
+                }}
+                fullWidth
+              />
+            </Grid>
+            <Grid item xs={3}>
+              Переуступка права аренды Недвижимость
+            </Grid>
+            <Grid item xs={3}>
+              <TextField
+                label="Бонус агенту"
+                type="number"
+                InputProps={{ inputProps: { min: 0 } }}
+              />
+            </Grid>
+          </Grid>
         </FieldSet>
         <FieldSet name="contacts" legend="Контакты">
-          телефон номер телефона
-          <TextField label="условия размещения объявления" multiline />
+          <Grid container spacing={2}>
+            <Grid item xs={4}>
+              <Stack spacing={2}>
+                <TextField label="телефон" fullWidth />
+                <TextField label="номер телефона" fullWidth />
+              </Stack>
+            </Grid>
+            <Grid item xs={8}>
+              <TextField
+                label="условия размещения объявления"
+                multiline
+                fullWidth
+                rows={4}
+              />
+            </Grid>
+          </Grid>
         </FieldSet>
         <FieldSet name="general" legend="Основные">
           <Grid container spacing={2}>
