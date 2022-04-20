@@ -35,7 +35,7 @@ import {
   ToggleWrapper,
   SwitchWrapper,
 } from "./fields";
-import ImageInput from "./fields/ImageInput";
+import VideoInput from "./fields/VideoInput";
 
 const objects = {
   rent: ["офис", "торговая площадь", "склад", "производство", "ПСН", "здание"],
@@ -115,7 +115,6 @@ function App() {
             </Grid>
           </FieldSet>
         ))}
-        <ImageInput control={control} name="file-test" />
       </Form>
       <Form name="Форма" onSubmit={handleSubmit}>
         <FieldSet name="description" legend="Описание">

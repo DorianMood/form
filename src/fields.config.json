@@ -265,7 +265,23 @@
     {
       "legend": "Описание",
       "name": "description",
-      "fields": []
+      "fields": [
+        {
+          "name": "Фото",
+          "type": "image",
+          "sm": 6
+        },
+        {
+          "name": "Видео",
+          "type": "video",
+          "sm": 6
+        },
+        {
+          "name": "Описание",
+          "type": "string",
+          "sm": 12
+        }
+      ]
     },
     {
       "legend": "Разное",

@@ -5,6 +5,8 @@ import ToggleWrapper from "./ToggleWrapper";
 import SelectWrapper from "./SelectWrapper";
 import TextFieldWrapper from "./TextFieldWrapper";
 import SwitchWrapper from "./SwitchWrapper";
+import VideoInput from "./VideoInput";
+import ImageInput from "./ImageInput";
 
 export function mapFields(fields, control) {
   return fields.map((field, fieldIndexInSection) => {
@@ -50,6 +52,26 @@ export function mapFields(fields, control) {
             />
           </Grid>
         );
+      case "video":
+        return (
+          <Grid item sm={field.sm || 3}>
+            <VideoInput
+              name={field.name || field.label}
+              label={field.label || field.name}
+              control={control}
+            />
+          </Grid>
+        );
+      case "image":
+        return (
+          <Grid item sm={field.sm || 3}>
+            <ImageInput
+              name={field.name || field.label}
+              label={field.label || field.name}
+              control={control}
+            />
+          </Grid>
+        );
     }
   });
 }
@@ -60,4 +82,6 @@ export {
   TextFieldWrapper,
   SelectWrapper,
   SwitchWrapper,
+  ImageInput,
+  VideoInput,
 };

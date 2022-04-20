@@ -7,16 +7,16 @@ import {
 
 import { useController } from "react-hook-form";
 
-import PhotoCameraIcon from "@mui/icons-material/PhotoCamera";
+import VideocamIcon from "@mui/icons-material/Videocam";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 
-export default function ImageInput({ control, name, label }) {
+export default function VideoInput({ control, name, label }) {
   const { field } = useController({ control, name });
   return (
     <>
       <label htmlFor="icon-button-file">
         <input
-          accept="image/*"
+          accept="video/*"
           type="file"
           id="icon-button-file"
           multiple
@@ -27,17 +27,19 @@ export default function ImageInput({ control, name, label }) {
         />
         <IconButton
           color="primary"
-          aria-label="Загрузите изображения"
+          aria-label="Загрузите видео"
           component="span"
         >
-          <PhotoCameraIcon />
+          <VideocamIcon />
         </IconButton>
       </label>
       {field?.value && (
         <ImageList sx={{ width: "100%", height: 450 }} cols={3} rowHeight={164}>
           {field.value.map((item, index) => (
             <ImageListItem key={index}>
-              <img src={URL.createObjectURL(item)} loading="lazy" />
+              <video controls loading="lazy">
+                <source src={URL.createObjectURL(item)} />
+              </video>
               <ImageListItemBar
                 sx={{ background: "rgba(0,0,0,0)" }}
                 position="top"
