@@ -9,18 +9,13 @@ import {
   IconButton,
   Autocomplete,
   Stack,
-  ButtonGroup,
-  Button,
-  Select,
   Switch,
-  Checkbox,
   Collapse,
   FormLabel,
   FormControlLabel,
   ToggleButtonGroup,
   ToggleButton,
   FormGroup,
-  MenuItem,
 } from "@mui/material";
 import { Map, YMaps } from "react-yandex-maps";
 
@@ -29,10 +24,17 @@ import VideocamIcon from "@mui/icons-material/Videocam";
 
 import "./App.css";
 import Form from "./Form";
-import CheckboxField from "./fields/Checkbox";
-import Toggle from "./fields/Toggle";
-import DropDown from "./fields/DropDown";
 import FieldSet from "./FieldSet";
+
+import form from "./fields.config.json";
+import {
+  mapFields,
+  SelectWrapper,
+  CheckboxWrapper,
+  TextFieldWrapper,
+  ToggleWrapper,
+  SwitchWrapper,
+} from "./fields";
 
 const objects = {
   rent: ["офис", "торговая площадь", "склад", "производство", "ПСН", "здание"],
@@ -48,13 +50,21 @@ const objects = {
 };
 
 function App() {
-  const { control, handleSubmit } = useForm({
-    defaultValues: {},
-  });
+  const { control, handleSubmit } = useForm();
   const [dealType, setDealType] = React.useState();
 
   return (
     <Container>
+      <Form name={form.name} onSubmit={handleSubmit}>
+        {form.sections.map((section, sectionIndex) => (
+          <FieldSet name={section.name} legend={section.legend}>
+            <Grid container spacing={2}>
+              {mapFields(section.fields, control)}
+            </Grid>
+          </FieldSet>
+        ))}
+      </Form>
+
       <Form name="Форма" onSubmit={handleSubmit}>
         <FieldSet name="type" legend="Тип объявления">
           <Grid container spacing={2}>
@@ -74,13 +84,20 @@ function App() {
             <Grid item sm={4}>
               <Collapse in={dealType}>
                 {dealType && (
-                  <DropDown options={objects[dealType]} label="Объект" />
+                  <SelectWrapper
+                    name="Объект"
+                    options={objects[dealType]}
+                    label="Объект"
+                    control={control}
+                  />
                 )}
               </Collapse>
             </Grid>
             <Grid item sm={4}>
               <Collapse in={dealType}>
-                <DropDown
+                <SelectWrapper
+                  control={control}
+                  name="Тип готового бизнеса список"
                   options={["1", "2"]}
                   label="Тип готового бизнеса список"
                 />
@@ -99,7 +116,11 @@ function App() {
         <FieldSet name="general" legend="Общие">
           <Grid container spacing={2}>
             <Grid item xs={3}>
-              <TextField label="Адрес поиск по справочнику" />
+              <TextFieldWrapper
+                name="address"
+                label="Адрес поиск по справочнику"
+                control={control}
+              />
             </Grid>
             <Grid item xs={3}>
               <TextField label="Юридический адрес" />
@@ -117,28 +138,33 @@ function App() {
               <TextField
                 label="Корпус"
                 type="number"
-                InputProps={{ inputProps: { min: 0 } }}
+                InputProps={{ inputprops: { min: 0 } }}
               />
             </Grid>
             <Grid item xs={3}>
               <TextField
                 label="Кадастровый номер"
                 type="number"
-                InputProps={{ inputProps: { min: 0 } }}
+                InputProps={{ inputprops: { min: 0 } }}
               />
             </Grid>
             <Grid item xs={3}>
               <TextField label="Номер налоговой" />
             </Grid>
             <Grid item xs={3}>
-              <DropDown options={["1", "2"]} label="Тип помещения" />
+              <SelectWrapper
+                name="Тип помещения"
+                control={control}
+                options={["1", "2"]}
+                label="Тип помещения"
+              />
             </Grid>
             <Grid item xs={3}>
               <TextField
                 label="Общая площадь число"
                 type="number"
                 InputProps={{
-                  inputProps: { min: 0 },
+                  inputprops: { min: 0 },
                   endAdornment: <InputAdornment>м2</InputAdornment>,
                 }}
               />
@@ -153,14 +179,14 @@ function App() {
               <TextField
                 label="Этаж целое число"
                 type="number"
-                InputProps={{ inputProps: { min: 0, step: 1 } }}
+                InputProps={{ inputprops: { min: 0, step: 1 } }}
               />
             </Grid>
             <Grid item xs={3}>
               <TextField
                 label="Этажность целое число"
                 type="number"
-                InputProps={{ inputProps: { min: 0, step: 1 } }}
+                InputProps={{ inputprops: { min: 0, step: 1 } }}
               />
             </Grid>
             <Grid item xs={3}>
@@ -168,7 +194,7 @@ function App() {
                 label="Высота потолков"
                 type="number"
                 InputProps={{
-                  inputProps: { min: 0, step: 0.01 },
+                  inputprops: { min: 0, step: 0.01 },
                   endAdornment: <InputAdornment>м</InputAdornment>,
                 }}
               />
@@ -199,14 +225,14 @@ function App() {
               <TextField
                 label="Лифты (для зданий)"
                 type="number"
-                InputProps={{ inputProps: { min: 0, step: 1 } }}
+                InputProps={{ inputprops: { min: 0, step: 1 } }}
               />
             </Grid>
             <Grid item xs={3}>
               <TextField
                 label="Количество мокрых точек"
                 type="number"
-                InputProps={{ inputProps: { min: 0, step: 1 } }}
+                InputProps={{ inputprops: { min: 0, step: 1 } }}
               />
             </Grid>
             <Grid item xs={3}>
@@ -214,13 +240,18 @@ function App() {
                 label="Электрическая мощность"
                 type="number"
                 InputProps={{
-                  inputProps: { min: 0, step: 0.01 },
+                  inputprops: { min: 0, step: 0.01 },
                   endAdornment: <InputAdornment>Ватт</InputAdornment>,
                 }}
               />
             </Grid>
             <Grid item xs={3}>
-              <DropDown options={["1", "2"]} label="Назначение" />
+              <SelectWrapper
+                name="Назначение"
+                options={["1", "2"]}
+                label="Назначение"
+                control={control}
+              />
             </Grid>
             <Grid item xs={3}>
               <TextField label="Инфраструктура" multiline />
@@ -294,7 +325,7 @@ function App() {
               <TextField
                 label="Количество мест"
                 type="number"
-                InputProps={{ inputProps: { min: 0 } }}
+                InputProps={{ inputprops: { min: 0 } }}
               />
             </Grid>
             <Grid item xs={3}>
@@ -302,7 +333,7 @@ function App() {
                 label="Стоимость (парковки)"
                 type="number"
                 InputProps={{
-                  inputProps: { min: 0, step: 1 },
+                  inputprops: { min: 0, step: 1 },
                   endAdornment: <InputAdornment>₽</InputAdornment>,
                 }}
               />
@@ -315,7 +346,7 @@ function App() {
                 label="Стоимость въезда"
                 type="number"
                 InputProps={{
-                  inputProps: { min: 0, step: 1 },
+                  inputprops: { min: 0, step: 1 },
                   endAdornment: <InputAdornment>₽</InputAdornment>,
                 }}
               />
@@ -331,11 +362,16 @@ function App() {
               <TextField
                 label="Год постройки"
                 type="number"
-                InputProps={{ inputProps: { min: 0 } }}
+                InputProps={{ inputprops: { min: 0 } }}
               />
             </Grid>
             <Grid item xs={3}>
-              <DropDown options={["1", "2"]} label="Тип здания" />
+              <SelectWrapper
+                name="Тип здания"
+                options={["1", "2"]}
+                label="Тип здания"
+                control={control}
+              />
             </Grid>
             <Grid item xs={3}>
               <TextField label="Класс здания" />
@@ -345,7 +381,7 @@ function App() {
                 label="Площадь здания число"
                 type="number"
                 InputProps={{
-                  inputProps: { min: 0, step: 1 },
+                  inputprops: { min: 0, step: 1 },
                   endAdornment: <InputAdornment>м2</InputAdornment>,
                 }}
               />
@@ -354,7 +390,7 @@ function App() {
               <TextField
                 label="Линия"
                 type="number"
-                InputProps={{ inputProps: { min: 0 } }}
+                InputProps={{ inputprops: { min: 0 } }}
               />
             </Grid>
             <Grid item xs={3}>
@@ -372,7 +408,7 @@ function App() {
                 label="Участок (площадь)"
                 type="number"
                 InputProps={{
-                  inputProps: { min: 0, step: 1 },
+                  inputprops: { min: 0, step: 1 },
                   endAdornment: <InputAdornment>м2</InputAdornment>,
                 }}
               />
@@ -439,7 +475,7 @@ function App() {
                 label="Месячная прибыль"
                 type="number"
                 InputProps={{
-                  inputProps: { min: 0, step: 1 },
+                  inputprops: { min: 0, step: 1 },
                   endAdornment: <InputAdornment>₽</InputAdornment>,
                 }}
               />
@@ -452,26 +488,36 @@ function App() {
                 label="Арендная плата/Цена"
                 type="number"
                 InputProps={{
-                  inputProps: { min: 0, step: 1 },
+                  inputprops: { min: 0, step: 1 },
                   endAdornment: <InputAdornment>₽</InputAdornment>,
                 }}
               />
             </Grid>
             <Grid item xs={3}>
-              <DropDown options={["1", "2"]} label="Налог список" />
+              <SelectWrapper
+                name="Налог список"
+                options={["1", "2"]}
+                label="Налог список"
+                control={control}
+              />
             </Grid>
             <Grid item xs={3}>
               <TextField label="В ставку включены" />
             </Grid>
             <Grid item xs={3}>
-              <DropDown options={["1", "2"]} label="Тип аренды список" />
+              <SelectWrapper
+                name="Тип аренды список"
+                options={["1", "2"]}
+                label="Тип аренды список"
+                control={control}
+              />
             </Grid>
             <Grid item xs={4}>
               <TextField
                 label="Минимальный срок аренды от"
                 type="number"
                 InputProps={{
-                  inputProps: { min: 0, step: 1 },
+                  inputprops: { min: 0, step: 1 },
                   endAdornment: <InputAdornment>мес.</InputAdornment>,
                 }}
                 fullWidth
@@ -485,21 +531,26 @@ function App() {
                 label="Обеспечительный платеж"
                 type="number"
                 InputProps={{
-                  inputProps: { min: 0, step: 1 },
+                  inputprops: { min: 0, step: 1 },
                   endAdornment: <InputAdornment>₽</InputAdornment>,
                 }}
                 fullWidth
               />
             </Grid>
             <Grid item xs={3}>
-              <DropDown options={["1", "2"]} label="Предоплата список" />
+              <SelectWrapper
+                name="Предоплата список"
+                options={["1", "2"]}
+                label="Предоплата список"
+                control={control}
+              />
             </Grid>
             <Grid item xs={3}>
               <TextField
                 label="% от клиента галочка/число"
                 type="number"
                 InputProps={{
-                  inputProps: { min: 0, step: 1 },
+                  inputprops: { min: 0, step: 1 },
                   endAdornment: <InputAdornment>%</InputAdornment>,
                 }}
                 fullWidth
@@ -510,7 +561,7 @@ function App() {
                 label="% от другого агента галочка/число"
                 type="number"
                 InputProps={{
-                  inputProps: { min: 0, step: 1 },
+                  inputprops: { min: 0, step: 1 },
                   endAdornment: <InputAdornment>%</InputAdornment>,
                 }}
                 fullWidth
@@ -523,7 +574,7 @@ function App() {
               <TextField
                 label="Бонус агенту"
                 type="number"
-                InputProps={{ inputProps: { min: 0 } }}
+                InputProps={{ inputprops: { min: 0 } }}
               />
             </Grid>
           </Grid>
@@ -549,16 +600,32 @@ function App() {
         <FieldSet name="general" legend="Основные">
           <Grid container spacing={2}>
             <Grid item sm={6}>
-              <Toggle options={["Коммерческая", "Жилая"]} label="Тип" />
+              <ToggleWrapper
+                name="type"
+                label="Тип"
+                options={["Коммерческая", "Жилая"]}
+                control={control}
+              />
             </Grid>
             <Grid item sm={6}>
-              <CheckboxField label="Расширенная форма" />
+              <CheckboxWrapper
+                name="Расширенная форма"
+                label="Расширенная форма"
+                control={control}
+              />
             </Grid>
             <Grid item sm={4}>
-              <DropDown options={["Продажа", "Аренда"]} label="Тип сделки" />
+              <SelectWrapper
+                name="Тип сделки"
+                options={["Продажа", "Аренда"]}
+                label="Тип сделки"
+                control={control}
+              />
             </Grid>
             <Grid item sm={4}>
-              <DropDown
+              <SelectWrapper
+                name="Тип недвижимости"
+                control={control}
                 options={[
                   "Помещение",
                   "Здание",
@@ -570,7 +637,9 @@ function App() {
               />
             </Grid>
             <Grid item sm={4}>
-              <DropDown
+              <SelectWrapper
+                name="Назначение"
+                control={control}
                 options={[
                   "Офисное",
                   "Производственное",
@@ -591,7 +660,7 @@ function App() {
                 label="Этаж"
                 helperText="0 - цоколь / подвал"
                 type="number"
-                InputProps={{ inputProps: { min: 0 } }}
+                InputProps={{ inputprops: { min: 0 } }}
               />
             </Grid>
             <Grid item sm={4}>
@@ -599,7 +668,7 @@ function App() {
                 label="Этажей"
                 helperText="Этажей в здании"
                 type="number"
-                InputProps={{ inputProps: { min: 0 } }}
+                InputProps={{ inputprops: { min: 0 } }}
               />
             </Grid>
             <Grid item sm={4}>
@@ -607,7 +676,7 @@ function App() {
                 label="Общая площадь"
                 type="number"
                 InputProps={{
-                  inputProps: { min: 0 },
+                  inputprops: { min: 0 },
                   endAdornment: <InputAdornment>м2</InputAdornment>,
                 }}
               />
@@ -622,7 +691,7 @@ function App() {
                 label="Цена за весь объект"
                 type="number"
                 InputProps={{
-                  inputProps: { min: 0, step: 10000 },
+                  inputprops: { min: 0, step: 10000 },
                   endAdornment: <InputAdornment>₽</InputAdornment>,
                 }}
               />
@@ -633,13 +702,17 @@ function App() {
                 label="Цена за м2"
                 type="number"
                 InputProps={{
-                  inputProps: { min: 0, step: 10000 },
+                  inputprops: { min: 0, step: 10000 },
                   endAdornment: <InputAdornment>₽ / м2</InputAdornment>,
                 }}
               />
             </Grid>
             <Grid item sm={4}>
-              <CheckboxField label="Работают с НДС" />
+              <CheckboxWrapper
+                name="Работают с НДС"
+                label="Работают с НДС"
+                control={control}
+              />
             </Grid>
             <Grid item sm={6}>
               <TextField
@@ -647,7 +720,7 @@ function App() {
                 label="Обеспечительный платёж"
                 type="number"
                 InputProps={{
-                  inputProps: { min: 0, step: 10000 },
+                  inputprops: { min: 0, step: 10000 },
                   endAdornment: <InputAdornment>₽ / мес.</InputAdornment>,
                 }}
               />
@@ -658,7 +731,7 @@ function App() {
                 label="Обеспечительный платёж"
                 type="number"
                 InputProps={{
-                  inputProps: { min: 0, step: 10000 },
+                  inputprops: { min: 0, step: 10000 },
                   endAdornment: <InputAdornment>₽</InputAdornment>,
                 }}
               />
@@ -669,13 +742,17 @@ function App() {
                 helperText="Размер комиссии для клиента"
                 type="number"
                 InputProps={{
-                  inputProps: { min: 0, step: 0.1 },
+                  inputprops: { min: 0, step: 0.1 },
                   endAdornment: <InputAdornment>%</InputAdornment>,
                 }}
               />
             </Grid>
             <Grid item sm={4}>
-              <CheckboxField label="Арендные каникулы" />
+              <CheckboxWrapper
+                name="Арендные каникулы"
+                label="Арендные каникулы"
+                control={control}
+              />
             </Grid>
             <Grid item sm={8}>
               <TextField
@@ -683,13 +760,17 @@ function App() {
                 helperText="Срок арендных каникул"
                 type="number"
                 InputProps={{
-                  inputProps: { min: 0 },
+                  inputprops: { min: 0 },
                   endAdornment: <InputAdornment>мес.</InputAdornment>,
                 }}
               />
             </Grid>
             <Grid item sm={4}>
-              <CheckboxField label="Входят ли коммунальные платежи в стоимость" />
+              <CheckboxWrapper
+                name="Входят ли коммунальные платежи в стоимость"
+                label="Входят ли коммунальные платежи в стоимость"
+                control={control}
+              />
             </Grid>
             <Grid item sm={8}>
               <TextField
@@ -697,16 +778,20 @@ function App() {
                 helperText="Примерный размер коммунальных платежей в месяц"
                 type="number"
                 InputProps={{
-                  inputProps: { min: 0, step: 100 },
+                  inputprops: { min: 0, step: 100 },
                   endAdornment: <InputAdornment>₽ / мес.</InputAdornment>,
                 }}
               />
             </Grid>
             <Grid item sm={4}>
-              <CheckboxField label="Уместен ли торг" />
+              <CheckboxWrapper
+                name="Уместен ли торг"
+                label="Уместен ли торг"
+                control={control}
+              />
             </Grid>
             <Grid item sm={4}>
-              <CheckboxField label="Акция" />
+              <CheckboxWrapper name="Акция" label="Акция" control={control} />
             </Grid>
           </Grid>
         </FieldSet>
@@ -757,7 +842,12 @@ function App() {
                 />
               </Grid>
               <Grid item sm={12}>
-                <DropDown label="Район Екатеринбурга" options={["1", "2"]} />
+                <SelectWrapper
+                  name="Район Екатеринбурга"
+                  label="Район Екатеринбурга"
+                  options={["1", "2"]}
+                  control={control}
+                />
               </Grid>
               <Grid item sm={8}>
                 <TextField fullWidth label="Улица" type="text" />
@@ -768,13 +858,25 @@ function App() {
             </Grid>
             <Grid item container sm={6} spacing={2}>
               <Grid item sm={6}>
-                <CheckboxField label="1-я линия" />
+                <CheckboxWrapper
+                  name="1-я линия"
+                  label="1-я линия"
+                  control={control}
+                />
               </Grid>
               <Grid item sm={6}>
-                <CheckboxField label="Отдельный вход" />
+                <CheckboxWrapper
+                  name="Отдельный вход"
+                  label="Отдельный вход"
+                  control={control}
+                />
               </Grid>
               <Grid item sm={6}>
-                <CheckboxField label="Парковка" />
+                <CheckboxWrapper
+                  name="Парковка"
+                  label="Парковка"
+                  control={control}
+                />
               </Grid>
               <Grid item sm={6}>
                 <TextField
@@ -782,7 +884,7 @@ function App() {
                   label="Парковка"
                   helperText="Общее количество машиномест"
                   type="number"
-                  inputProps={{ inputProps: { min: 0, step: 1 } }}
+                  inputprops={{ inputProps: { min: 0, step: 1 } }}
                 />
               </Grid>
               <Grid item sm={6}>
@@ -791,11 +893,15 @@ function App() {
                   label="Входы"
                   helperText="Количество входов на объекте"
                   type="number"
-                  inputProps={{ min: 0, step: 1 }}
+                  inputprops={{ min: 0, step: 1 }}
                 />
               </Grid>
               <Grid item sm={12}>
-                <CheckboxField label="Удаленность от школ, садиков и т.д. (торговля алкоголем)" />
+                <CheckboxWrapper
+                  name="Удаленность от школ, садиков и т.д. (торговля алкоголем)"
+                  label="Удаленность от школ, садиков и т.д. (торговля алкоголем)"
+                  control={control}
+                />
               </Grid>
             </Grid>
           </Grid>
@@ -808,13 +914,17 @@ function App() {
                 label="Высота потолков"
                 type="number"
                 InputProps={{
-                  inputProps: { min: 0, step: 100 },
+                  inputprops: { min: 0, step: 100 },
                   endAdornment: <InputAdornment>м</InputAdornment>,
                 }}
               />
             </Grid>
             <Grid item sm={4}>
-              <CheckboxField label="Отделка" />
+              <CheckboxWrapper
+                name="Отделка"
+                label="Отделка"
+                control={control}
+              />
             </Grid>
             <Grid item sm={4}>
               <TextField fullWidth label="Тип спецотделки" type="text" />
@@ -822,7 +932,7 @@ function App() {
           </Grid>
         </FieldSet>
         <FieldSet name="communications" legend="Коммуникации">
-          <CheckboxField label="Интернет" />
+          <CheckboxWrapper name="Интернет" label="Интернет" control={control} />
           <Stack spacing={2}>
             <TextField fullWidth label="Провайдеры" type="text" />
             <TextField fullWidth label="Тип здания" type="text" />
@@ -831,40 +941,100 @@ function App() {
             <TextField
               label="Год постройки / сдачи"
               type="number"
-              InputProps={{ inputProps: { min: 1900 } }}
+              InputProps={{ inputprops: { min: 1900 } }}
             />
           </Stack>
-          <CheckboxField label="Лифты в здании" />
-          <CheckboxField label="Охрана здания" />
-          <CheckboxField label="Система газоснабжения" />
-          <CheckboxField label="Система отопления" />
-          <CheckboxField label="Система водоснабжения" />
-          <CheckboxField label="Кондиционирование" />
-          <CheckboxField label="Наличие пожарной сигнализации" />
-          <CheckboxField label="Возможна ли перепланировка" />
-          <CheckboxField label="Наличие погрузочной / разгрузочной зоны" />
+          <CheckboxWrapper
+            name="Лифты в здании"
+            label="Лифты в здании"
+            control={control}
+          />
+          <CheckboxWrapper
+            name="Охрана здания"
+            label="Охрана здания"
+            control={control}
+          />
+          <CheckboxWrapper
+            name="Система газоснабжения"
+            label="Система газоснабжения"
+            control={control}
+          />
+          <CheckboxWrapper
+            name="Система отопления"
+            label="Система отопления"
+            control={control}
+          />
+          <CheckboxWrapper
+            name="Система водоснабжения"
+            label="Система водоснабжения"
+            control={control}
+          />
+          <CheckboxWrapper
+            name="Кондиционирование"
+            label="Кондиционирование"
+            control={control}
+          />
+          <CheckboxWrapper
+            name="Наличие пожарной сигнализации"
+            label="Наличие пожарной сигнализации"
+            control={control}
+          />
+          <CheckboxWrapper
+            name="Возможна ли перепланировка"
+            label="Возможна ли перепланировка"
+            control={control}
+          />
+          <CheckboxWrapper
+            name="Наличие погрузочной / разгрузочной зоны"
+            label="Наличие погрузочной / разгрузочной зоны"
+            control={control}
+          />
           <TextField
             label="Подключенная мощность"
             type="number"
             InputProps={{
-              inputProps: { min: 0, step: 1 },
+              inputprops: { min: 0, step: 1 },
               endAdornment: <InputAdornment>Ватт</InputAdornment>,
             }}
           />
-          <CheckboxField label="Возможность увеличения мощности" />
+          <CheckboxWrapper
+            name="Возможность увеличения мощности"
+            label="Возможность увеличения мощности"
+            control={control}
+          />
         </FieldSet>
         <FieldSet name="furniture" legend="Мебель и оборудование">
           <Stack>
-            <CheckboxField label="Мебель" />
-            <CheckboxField label="Оборудование" />
+            <CheckboxWrapper name="Мебель" label="Мебель" control={control} />
+            <CheckboxWrapper
+              name="Оборудование"
+              label="Оборудование"
+              control={control}
+            />
           </Stack>
         </FieldSet>
         <FieldSet name="utilities" legend="Оборудование">
           <Stack>
-            <CheckboxField label="Холодильная камера" />
-            <CheckboxField label="Подъездные пути" />
-            <CheckboxField label="Ж/Д пути" />
-            <CheckboxField label="Кран-балка" />
+            <CheckboxWrapper
+              name="Холодильная камера"
+              label="Холодильная камера"
+              control={control}
+            />
+            <CheckboxWrapper
+              name="Подъездные пути"
+              label="Подъездные пути"
+              control={control}
+            />
+            <CheckboxWrapper
+              name="Ж/Д пути"
+              label="Ж/Д пути"
+              control={control}
+            />
+            <CheckboxWrapper
+              name="Кран-балка"
+              label="Кран-балка"
+              control={control}
+            />
           </Stack>
         </FieldSet>
         <FieldSet name="information" legend="Информация">

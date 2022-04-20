@@ -1,0 +1,126 @@
+{
+  "name": "Форма",
+  "sections": [
+    {
+      "legend": "Общие",
+      "name": "type",
+      "fields": [
+        {
+          "type": "string",
+          "label": "Адрес поиск по справочнику"
+        },
+        {
+          "type": "string",
+          "label": "Юридический адрес"
+        },
+        {
+          "type": "switch",
+          "label": "Скрыть точный адрес в объявлении"
+        },
+        {
+          "type": "string",
+          "label": "Название ЖК"
+        },
+        {
+          "type": "number",
+          "label": "Корпус"
+        },
+        {
+          "type": "string",
+          "label": "Кадастровый номер"
+        },
+        {
+          "type": "string",
+          "label": "Номер налоговой"
+        },
+        {
+          "type": "select",
+          "label": "Тип помещения",
+          "options": ["1", "2", "3"]
+        },
+        {
+          "type": "number",
+          "label": "Общая площадь",
+          "units": "м2"
+        },
+        {
+          "type": "switch",
+          "label": "Возможна аренда/продажа частями"
+        },
+        {
+          "type": "number",
+          "label": "Этаж"
+        },
+        {
+          "type": "number",
+          "label": "Этажность"
+        },
+        {
+          "type": "number",
+          "label": "Высота потолков",
+          "units": "м"
+        },
+        {
+          "type": "switch",
+          "label": "Витринные окна"
+        },
+        {
+          "type": "switch",
+          "label": "Помещение занято"
+        },
+        {
+          "type": "string",
+          "label": "Планировка"
+        },
+        {
+          "type": "string",
+          "label": "Сетка колон"
+        },
+        {
+          "type": "string",
+          "label": "Материал пола"
+        }
+      ]
+    },
+    {
+      "legend": "Тип объявления",
+      "name": "type",
+      "fields": []
+    },
+    {
+      "legend": "Тип объявления",
+      "name": "type",
+      "fields": []
+    },
+    {
+      "legend": "Тип объявления",
+      "name": "type",
+      "fields": []
+    },
+    {
+      "legend": "Тип объявления",
+      "name": "type",
+      "fields": []
+    },
+    {
+      "legend": "Тип объявления",
+      "name": "type",
+      "fields": []
+    },
+    {
+      "legend": "Тип объявления",
+      "name": "type",
+      "fields": []
+    },
+    {
+      "legend": "Тип объявления",
+      "name": "type",
+      "fields": []
+    },
+    {
+      "legend": "Тип объявления",
+      "name": "type",
+      "fields": []
+    }
+  ]
+}
