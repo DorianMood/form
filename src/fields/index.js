@@ -39,6 +39,17 @@ export function mapFields(fields, control) {
             />
           </Grid>
         );
+      case "select":
+        return (
+          <Grid item sm={field.sm || 3}>
+            <SelectWrapper
+              name={field.name || field.label}
+              label={field.label || field.name}
+              options={field.options}
+              control={control}
+            />
+          </Grid>
+        );
     }
   });
 }

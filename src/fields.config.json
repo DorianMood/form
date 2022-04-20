@@ -83,43 +83,198 @@
       ]
     },
     {
-      "legend": "Тип объявления",
-      "name": "type",
+      "legend": "Коммуникации",
+      "name": "communications",
+      "fields": [
+        {
+          "name": "Лифты (для зданий)",
+          "type": "string",
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "Лифты (для складов)",
+          "type": "string",
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "Количество мокрых точек",
+          "type": "string",
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "Электрическая мощность",
+          "type": "string",
+          "min": 0,
+          "step": 1
+        },
+        {
+          "name": "Назначение",
+          "type": "select",
+          "options": ["1", "2"]
+        },
+        {
+          "name": "Инфраструктура",
+          "type": "string"
+        },
+        {
+          "name": "Дополнительные услуги",
+          "type": "string"
+        },
+        {
+          "name": "Вход",
+          "type": "string"
+        },
+        {
+          "name": "Доступ",
+          "type": "string"
+        },
+        {
+          "name": "Ворота",
+          "type": "switch"
+        },
+        {
+          "name": "Крановое оборудование",
+          "type": "switch"
+        },
+        {
+          "name": "Вентиляция",
+          "type": "switch"
+        },
+        {
+          "name": "Кондиционирование",
+          "type": "switch"
+        },
+        {
+          "name": "Отопление",
+          "type": "switch"
+        },
+        {
+          "name": "Пожаротушение",
+          "type": "switch"
+        }
+      ]
+    },
+    {
+      "legend": "Мебель и оборудование",
+      "name": "furniture",
+      "fields": [
+        {
+          "name": "Оборудование",
+          "type": "string"
+        },
+        {
+          "name": "Состояние",
+          "type": "string"
+        },
+        {
+          "name": "Мебель",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "legend": "Парковка",
+      "name": "parking",
+      "fields": [
+        {
+          "name": "Парковка для офиса",
+          "type": "switch"
+        },
+        {
+          "name": "Парковка для склада",
+          "type": "switch"
+        },
+        {
+          "name": "Количество мест",
+          "type": "string"
+        },
+        {
+          "name": "Стоимость парковки",
+          "type": "string"
+        },
+        {
+          "name": "Тип парковки",
+          "type": "string"
+        },
+        {
+          "name": "Стоимость въезда",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "legend": "Постройка",
+      "name": "building",
+      "fields": [
+        {
+          "name": "Название здания",
+          "type": "string"
+        },
+        {
+          "name": "Год постройки",
+          "type": "string"
+        },
+        {
+          "name": "Тип здания",
+          "type": "select",
+          "options": ["1", "2"]
+        },
+        {
+          "name": "Класс",
+          "type": "string"
+        },
+        {
+          "name": "Площадь здания",
+          "type": "string"
+        },
+        {
+          "name": "Линия",
+          "type": "string"
+        },
+        {
+          "name": "Девелопер",
+          "type": "string"
+        },
+        {
+          "name": "УК",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "legend": "Земля",
+      "name": "land",
+      "fields": [
+        {
+          "name": "Участок (площадь)",
+          "type": "string"
+        },
+        {
+          "name": "Участок (собственность/аренда)",
+          "type": "string"
+        },
+        {
+          "name": "Категория",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "legend": "Описание",
+      "name": "description",
       "fields": []
     },
     {
-      "legend": "Тип объявления",
-      "name": "type",
+      "legend": "Разное",
+      "name": "other",
       "fields": []
     },
     {
-      "legend": "Тип объявления",
-      "name": "type",
-      "fields": []
-    },
-    {
-      "legend": "Тип объявления",
-      "name": "type",
-      "fields": []
-    },
-    {
-      "legend": "Тип объявления",
-      "name": "type",
-      "fields": []
-    },
-    {
-      "legend": "Тип объявления",
-      "name": "type",
-      "fields": []
-    },
-    {
-      "legend": "Тип объявления",
-      "name": "type",
-      "fields": []
-    },
-    {
-      "legend": "Тип объявления",
-      "name": "type",
+      "legend": "Контакты",
+      "name": "contacts",
       "fields": []
     }
   ]
