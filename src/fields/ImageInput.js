@@ -3,6 +3,7 @@ import {
   ImageList,
   ImageListItem,
   ImageListItemBar,
+  Collapse,
 } from "@mui/material";
 
 import { useController } from "react-hook-form";
@@ -10,15 +11,15 @@ import { useController } from "react-hook-form";
 import PhotoCameraIcon from "@mui/icons-material/PhotoCamera";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 
-export default function ImageInput({ control, name, label }) {
+export default function ImageInput({ control, name, label, inputProps }) {
   const { field } = useController({ control, name });
   return (
     <>
-      <label htmlFor="icon-button-file">
+      <label htmlFor="icon-button-image">
         <input
           accept="image/*"
           type="file"
-          id="icon-button-file"
+          id="icon-button-image"
           multiple
           style={{ display: "none" }}
           onChange={(e) => {
@@ -33,28 +34,40 @@ export default function ImageInput({ control, name, label }) {
           <PhotoCameraIcon />
         </IconButton>
       </label>
-      {field?.value && (
-        <ImageList sx={{ width: "100%", height: 450 }} cols={3} rowHeight={164}>
-          {field.value.map((item, index) => (
-            <ImageListItem key={index}>
-              <img src={URL.createObjectURL(item)} loading="lazy" />
-              <ImageListItemBar
-                sx={{ background: "rgba(0,0,0,0)" }}
-                position="top"
-                actionPosition="right"
-                actionIcon={
-                  <IconButton sx={{ color: "black" }}>
-                    <DeleteForeverIcon />
-                  </IconButton>
-                }
-                onClick={() =>
-                  field.onChange(field.value.filter((_, idx) => idx !== index))
-                }
-              />
-            </ImageListItem>
-          ))}
-        </ImageList>
-      )}
+      <Collapse in={field.value?.length > 0}>
+        {field?.value && (
+          <ImageList
+            sx={{ width: "100%", maxHeight: 256 }}
+            cols={3}
+            rowHeight={128}
+          >
+            {field.value.map((item, index) => (
+              <ImageListItem key={index}>
+                <img
+                  src={URL.createObjectURL(item)}
+                  loading="lazy"
+                  alt={item.name}
+                />
+                <ImageListItemBar
+                  sx={{ background: "rgba(0,0,0,0)" }}
+                  position="top"
+                  actionPosition="right"
+                  actionIcon={
+                    <IconButton sx={{ color: "black" }}>
+                      <DeleteForeverIcon />
+                    </IconButton>
+                  }
+                  onClick={() =>
+                    field.onChange(
+                      field.value.filter((_, idx) => idx !== index)
+                    )
+                  }
+                />
+              </ImageListItem>
+            ))}
+          </ImageList>
+        )}
+      </Collapse>
     </>
   );
 }

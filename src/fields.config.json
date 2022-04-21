@@ -108,7 +108,8 @@
           "name": "Электрическая мощность",
           "type": "string",
           "min": 0,
-          "step": 1
+          "step": 1,
+          "units": "Ватт"
         },
         {
           "name": "Назначение",
@@ -193,7 +194,8 @@
         },
         {
           "name": "Стоимость парковки",
-          "type": "string"
+          "type": "string",
+          "units": "₽"
         },
         {
           "name": "Тип парковки",
@@ -201,7 +203,8 @@
         },
         {
           "name": "Стоимость въезда",
-          "type": "string"
+          "type": "string",
+          "units": "₽"
         }
       ]
     },
@@ -228,7 +231,8 @@
         },
         {
           "name": "Площадь здания",
-          "type": "string"
+          "type": "string",
+          "units": "м2"
         },
         {
           "name": "Линия",
@@ -279,7 +283,11 @@
         {
           "name": "Описание",
           "type": "string",
-          "sm": 12
+          "sm": 12,
+          "inputProps": {
+            "multiline": true,
+            "rows": 4
+          }
         }
       ]
     },

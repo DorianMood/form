@@ -18,6 +18,8 @@ export function mapFields(fields, control) {
               name={field.name || field.label}
               label={field.label || field.name}
               control={control}
+              inputProps={{ ...field.inputProps, type: "string" }}
+              units={field.units}
             />
           </Grid>
         );
@@ -28,6 +30,8 @@ export function mapFields(fields, control) {
               name={field.name || field.label}
               label={field.label || field.name}
               control={control}
+              inputProps={{ ...field.inputProps, type: "number" }}
+              units={field.units}
             />
           </Grid>
         );

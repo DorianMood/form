@@ -31,11 +31,8 @@ import {
   mapFields,
   SelectWrapper,
   CheckboxWrapper,
-  TextFieldWrapper,
   ToggleWrapper,
-  SwitchWrapper,
 } from "./fields";
-import VideoInput from "./fields/VideoInput";
 
 const objects = {
   rent: ["офис", "торговая площадь", "склад", "производство", "ПСН", "здание"],
