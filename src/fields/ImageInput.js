@@ -11,8 +11,8 @@ import { useController } from "react-hook-form";
 import PhotoCameraIcon from "@mui/icons-material/PhotoCamera";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 
-export default function ImageInput({ control, name, label, inputProps }) {
-  const { field } = useController({ control, name });
+export default function ImageInput({ control, name, display }) {
+  const { field } = useController({ control, name, display });
   return (
     <>
       <label htmlFor="icon-button-image">
@@ -30,6 +30,7 @@ export default function ImageInput({ control, name, label, inputProps }) {
           color="primary"
           aria-label="Загрузите изображения"
           component="span"
+          disabled={!display}
         >
           <PhotoCameraIcon />
         </IconButton>

@@ -2,18 +2,17 @@ import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import { Controller } from "react-hook-form";
 import * as React from "react";
 
-function SelectWrapper({ control, label, name, options }) {
+function SelectWrapper({ control, label, name, options, display }) {
   return (
     <Controller
       name={name}
       control={control}
       render={({ field }) => (
-        <FormControl fullWidth>
+        <FormControl fullWidth disabled={!display}>
           <InputLabel>{label}</InputLabel>
           <Select
             defaultValue={options[0]}
-            value={field.value}
-            onChange={field.onChange}
+            onChange={(e) => field.onChange(e.target.value)}
             label={label}
           >
             {options.map((item, index) => (

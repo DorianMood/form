@@ -8,75 +8,113 @@ import SwitchWrapper from "./SwitchWrapper";
 import VideoInput from "./VideoInput";
 import ImageInput from "./ImageInput";
 
-export function mapFields(fields, control) {
+export function mapFields(fields, control, parameters, parametersValues) {
   return fields.map((field, fieldIndexInSection) => {
-    switch (field.type) {
-      case "string":
-        return (
-          <Grid item sm={field.sm || 3}>
+    const getFieldWrapper = () => {
+      let body;
+      let options;
+      if (typeof field.display === typeof []) {
+        options = field.options[0];
+        field.display.forEach((condition, index) => {
+          const conditionBody = `return ${condition}`;
+          const display = new Function(parameters, conditionBody);
+          if (display(...parametersValues)) {
+            body = conditionBody;
+            options = field.options[index];
+          }
+        });
+      } else {
+        body = `return ${field.display}`;
+        options = field.options;
+      }
+      const display = new Function(parameters, body)(...parametersValues);
+      switch (field.type) {
+        case "string":
+          return (
             <TextFieldWrapper
               name={field.name || field.label}
               label={field.label || field.name}
               control={control}
               inputProps={{ ...field.inputProps, type: "string" }}
               units={field.units}
+              display={display}
             />
-          </Grid>
-        );
-      case "number":
-        return (
-          <Grid item sm={field.sm || 3}>
+          );
+        case "number":
+          return (
             <TextFieldWrapper
               name={field.name || field.label}
               label={field.label || field.name}
               control={control}
               inputProps={{ ...field.inputProps, type: "number" }}
               units={field.units}
+              display={display}
             />
-          </Grid>
-        );
-      case "switch":
-        return (
-          <Grid item sm={field.sm || 3}>
+          );
+        case "switch":
+          return (
             <SwitchWrapper
               name={field.name || field.label}
               label={field.label || field.name}
               control={control}
+              display={display}
             />
-          </Grid>
-        );
-      case "select":
-        return (
-          <Grid item sm={field.sm || 3}>
+          );
+        case "select":
+          return (
             <SelectWrapper
               name={field.name || field.label}
               label={field.label || field.name}
-              options={field.options}
+              options={options}
               control={control}
+              display={display}
             />
-          </Grid>
-        );
-      case "video":
-        return (
-          <Grid item sm={field.sm || 3}>
+          );
+        case "video":
+          return (
             <VideoInput
               name={field.name || field.label}
               label={field.label || field.name}
               control={control}
+              display={display}
             />
-          </Grid>
-        );
-      case "image":
-        return (
-          <Grid item sm={field.sm || 3}>
+          );
+        case "image":
+          return (
             <ImageInput
               name={field.name || field.label}
               label={field.label || field.name}
               control={control}
+              display={display}
             />
-          </Grid>
-        );
-    }
+          );
+        case "toggle":
+          return (
+            <ToggleWrapper
+              name={field.name || field.label}
+              label={field.label || field.name}
+              control={control}
+              options={field.options}
+              display={display}
+            />
+          );
+        case undefined:
+          return mapFields(field.fields, control, parameters, parametersValues);
+        default:
+          return `Поле с именем "${field.name}" имеет неизвестный тип: "${field.type}"`;
+      }
+    };
+
+    return (
+      <Grid
+        item
+        sm={field.sm || 3}
+        container={field.type === undefined}
+        key={fieldIndexInSection}
+      >
+        {getFieldWrapper()}
+      </Grid>
+    );
   });
 }
 

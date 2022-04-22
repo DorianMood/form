@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Controller } from "react-hook-form";
+import { useController } from "react-hook-form";
 import {
   ToggleButtonGroup,
   ToggleButton,
@@ -7,30 +7,26 @@ import {
   FormLabel,
 } from "@mui/material";
 
-function ToggleWrapper(props) {
+function ToggleWrapper({ control, label, name, options, display }) {
+  const { field } = useController({ control, name });
   return (
-    <Controller
-      name={props.name}
-      control={props.control}
-      render={({ field }) => (
-        <>
-          <FormLabel>{props.label}</FormLabel>
-          <FormGroup>
-            <ToggleButtonGroup
-              value={field.value}
-              exclusive
-              onChange={field.onChange}
-            >
-              {props.options.map((item, index) => (
-                <ToggleButton value={item} aria-label={item} key={index}>
-                  {item}
-                </ToggleButton>
-              ))}
-            </ToggleButtonGroup>
-          </FormGroup>
-        </>
-      )}
-    />
+    <>
+      <FormLabel>{label}</FormLabel>
+      <FormGroup>
+        <ToggleButtonGroup
+          value={field.value}
+          exclusive
+          onChange={field.onChange}
+          disabled={!display}
+        >
+          {options.map((item, index) => (
+            <ToggleButton value={item} aria-label={item} key={index}>
+              {item}
+            </ToggleButton>
+          ))}
+        </ToggleButtonGroup>
+      </FormGroup>
+    </>
   );
 }
 
