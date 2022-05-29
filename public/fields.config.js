@@ -1,6 +1,9 @@
 window.__form_widget_config = {
   name: "Форма",
   parameters: ["dealType", "objectType"],
+  onSubmit: (data) => {
+    console.log("Submitting...");
+  },
   sections: [
     {
       legend: "Тип объявления",

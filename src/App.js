@@ -10,7 +10,12 @@ import { mapFields } from "./fields";
 
 function App({ config }) {
   const [form, setForm] = React.useState();
-  const { control, handleSubmit, watch } = useForm();
+  const {
+    control,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
 
   React.useEffect(() => {
     setForm(config);
@@ -24,11 +29,15 @@ function App({ config }) {
     );
   }
 
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
   const parametersValues = watch(form.parameters);
 
   return (
     <Box padding={2}>
-      <Form name={form.name} onSubmit={handleSubmit}>
+      <Form name={form.name} onSubmit={handleSubmit(onSubmit)}>
         {form.sections.map((section, sectionIndex) => (
           <FieldSet
             name={section.name}
