@@ -29,7 +29,12 @@ function App({ config }) {
     );
   }
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
+    // TODO здесь будет отправка данных на сервер.
+    alert(
+      "Данные формы выведены в консоль. Для того чтобы открыть консоль нажмите F12."
+    );
+    console.log("%cДанные формы:", "color: green; font-size: 24px;");
     console.log(data);
   };
 
