@@ -28,8 +28,9 @@ window.__form_widget_config = {
               "торговая площадь",
               "склад",
               "производство",
-              "ПСН",
+              "помещение свободного назначения",
               "здание",
+              "коммерческая земля",
             ],
             [
               "офис",
@@ -39,6 +40,7 @@ window.__form_widget_config = {
               "ПСН",
               "здание",
               "готовый бизнес",
+              "коммерческая земля",
             ],
           ],
           sm: 4,
@@ -46,12 +48,12 @@ window.__form_widget_config = {
         {
           name: "Тип готового бизнеса",
           type: "select",
-          options: ["1", "2"],
-          display: "dealType !== undefined",
+          options: ["арендный бизнес", "готовый бизнес"],
+          display: "dealType !== undefined && objectType === 'готовый бизнес'",
           sm: 4,
         },
         {
-          name: "Видимость объявления",
+          name: "Выставить на сайт",
           type: "switch",
           display: "dealType !== undefined",
           sm: 4,
@@ -66,12 +68,6 @@ window.__form_widget_config = {
           type: "string",
           label: "Адрес поиск по справочнику",
           display: true,
-        },
-        {
-          type: "string",
-          label: "Юридический адрес",
-          display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа')",
         },
         {
           type: "switch",
@@ -98,17 +94,11 @@ window.__form_widget_config = {
             "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа') || (objectType === 'здание' && dealType === 'Продажа')",
         },
         {
-          type: "string",
-          label: "Номер налоговой",
-          display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа') || (objectType === 'здание' && dealType === 'Продажа')",
-        },
-        {
           type: "select",
           label: "Тип помещения",
           display:
             "(objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Продажа')",
-          options: ["1", "2", "3"],
+          options: ["street retail", "помещение в ТЦ"],
         },
         {
           type: "number",
@@ -155,8 +145,9 @@ window.__form_widget_config = {
             "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа')",
         },
         {
-          type: "string",
-          label: "Планировка",
+          label: "Тип готового бизнеса",
+          type: "select",
+          options: ["кабинетная", "коридорная", "открытая", "смешанная"],
           display:
             "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа')",
         },
@@ -586,21 +577,21 @@ window.__form_widget_config = {
       ],
     },
     {
-      legend: "Контакты",
+      legend: "Внутренняя информация",
       name: "contacts",
       fields: [
         {
           sm: 6,
           fields: [
             {
-              name: "Телефон",
+              name: "Клиент",
               display:
                 "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа') || (objectType === 'здание' && dealType === 'Продажа') || (objectType === 'готовый бизнес' && dealType === 'Продажа')",
               type: "string",
               sm: 12,
             },
             {
-              name: "Номер телефона",
+              name: "Сделка",
               display:
                 "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа') || (objectType === 'здание' && dealType === 'Продажа') || (objectType === 'готовый бизнес' && dealType === 'Продажа')",
               type: "string",
@@ -609,7 +600,7 @@ window.__form_widget_config = {
           ],
         },
         {
-          name: "Условия размещения объявления",
+          name: "Внутренний комментарий",
           display:
             "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа') || (objectType === 'здание' && dealType === 'Продажа') || (objectType === 'готовый бизнес' && dealType === 'Продажа')",
           type: "string",
