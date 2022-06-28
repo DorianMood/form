@@ -18,8 +18,9 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     steps:
     - name: build artifacts
-      run: npm install
-      run: npm run build
+      run:
+        npm install
+        npm run build
   release:
     runs-on: ubuntu-latest
     strategy:
