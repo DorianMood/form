@@ -1,5 +1,3 @@
-- name: build
-  run: npm run build
 - name: version
   run: echo "::set-output name=version::$(npm pkg get version | sed 's/"//g')"
   id: version
@@ -14,32 +12,23 @@
     body_path: CHANGELOG.md
   env:
     GITHUB_TOKEN: ${{ github.token }}
-  - name: build artifacts
-    run: make build-linux && make build-windows && make build-darwin
-  - name: upload linux artifact
-    uses: actions/upload-release-asset@v1
-    env:
-      GITHUB_TOKEN: ${{ github.token }}
-    with:
-      upload_url: ${{ steps.create_release.outputs.upload_url }}
-      asset_path: ./bin/azblogfilter.linux-amd64.tar.gz
-      asset_name: azblogfilter.linux-amd64.tar.gz
-      asset_content_type: application/gzip
-  - name: upload darwin artifact
-    uses: actions/upload-release-asset@v1
-    env:
-      GITHUB_TOKEN: ${{ github.token }}
-    with:
-      upload_url: ${{ steps.create_release.outputs.upload_url }}
-      asset_path: ./bin/azblogfilter.darwin-amd64.tar.gz
-      asset_name: azblogfilter.darwin-amd64.tar.gz
-      asset_content_type: application/gzip
-  - name: upload windows artifact
-    uses: actions/upload-release-asset@v1
-    env:
-      GITHUB_TOKEN: ${{ github.token }}
-    with:
-      upload_url: ${{ steps.create_release.outputs.upload_url }}
-      asset_path: ./bin/azblogfilter.windows-amd64.zip
-      asset_name: azblogfilter.windows-amd64.zip
-      asset_content_type: application/zip
+- name: build artifacts
+  run: npm run build
+- name: upload linux artifact
+  uses: actions/upload-release-asset@v1
+  env:
+    GITHUB_TOKEN: ${{ github.token }}
+  with:
+    upload_url: ${{ steps.create_release.outputs.upload_url }}
+    asset_path: ./build.tar.gz
+    asset_name: build.tar.gz
+    asset_content_type: application/gzip
+- name: upload windows artifact
+  uses: actions/upload-release-asset@v1
+  env:
+    GITHUB_TOKEN: ${{ github.token }}
+  with:
+    upload_url: ${{ steps.create_release.outputs.upload_url }}
+    asset_path: ./build.zip
+    asset_name: build.zip
+    asset_content_type: application/zip
