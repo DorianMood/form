@@ -11,14 +11,21 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [16.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
+    steps:
+    - name: build artifacts
+      run: npm install
+      run: npm run build
+  release:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     steps:
     - name: version
       run: echo "::set-output name=version::$(npm pkg get version | sed 's/"//g')"
@@ -30,11 +37,9 @@ jobs:
         draft: false
         prerelease: false
         release_name: ${{ steps.version.outputs.version }}
-        tag_name: ${{ github.ref }}
+        tag_name: ${{ github.run_number }}
       env:
         GITHUB_TOKEN: ${{ github.token }}
-    - name: build artifacts
-      run: npm run build
     - name: upload linux artifact
       uses: actions/upload-release-asset@v1
       env:
