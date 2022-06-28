@@ -17,14 +17,15 @@ jobs:
         node-version: [16.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     steps:
-    - name: install
-      run: cd .. && npm install
-    - name: build
-      run: npm run build
-    - name: zip
-      run: zip -r build.zip build
-    - name: tar
-      run: tar -czvf build.tar.gz build
+    - name: build artifacts
+      run: npm install && npm run build
+  release:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+    steps:
     - name: version
       run: echo "::set-output name=version::$(npm pkg get version | sed 's/"//g')"
       id: version
