@@ -18,7 +18,7 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     steps:
     - name: install
-      run: npm install
+      run: cd .. && npm install
     - name: build
       run: npm run build
     - name: zip
