@@ -18,11 +18,7 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
     steps:
     - name: build artifacts
-      run:
-        npm install
-        npm run build
-        zip -r build.zip build
-        tar -cfvz build.tar.gz build
+      run: npm install && npm run build && zip -r build.zip build &&tar -cfvz build.tar.gz build
     - name: version
       run: echo "::set-output name=version::$(npm pkg get version | sed 's/"//g')"
       id: version
