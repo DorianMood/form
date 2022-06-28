@@ -23,13 +23,6 @@ jobs:
         npm run build
         zip -r build.zip build
         tar -cfvz build.tar.gz build
-  release:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-    steps:
     - name: version
       run: echo "::set-output name=version::$(npm pkg get version | sed 's/"//g')"
       id: version
