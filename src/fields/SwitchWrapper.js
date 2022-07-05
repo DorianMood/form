@@ -14,6 +14,7 @@ export default function SwitchWrapper({ control, name, label, display }) {
               onChange={(e) => field.onChange(e.target.checked)}
               checked={Boolean(field.value)}
               disabled={!display}
+              display
             />
           }
           label={label}

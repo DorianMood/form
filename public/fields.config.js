@@ -73,7 +73,7 @@ window.__form_widget_config = {
           type: "switch",
           label: "Скрыть точный адрес в объявлении",
           display:
-            "(objectType === 'готовый бизнес' && dealType === 'Продажа')",
+            "(objectType === 'готовый бизнес' && dealType === 'Продажа' && objectType !== 'коммерческая земля')",
         },
         {
           type: "string",
@@ -97,7 +97,7 @@ window.__form_widget_config = {
           type: "select",
           label: "Тип помещения",
           display:
-            "(objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Продажа')",
+            "(objectType === 'торговая площадь')",
           options: ["street retail", "помещение в ТЦ"],
         },
         {
@@ -145,11 +145,11 @@ window.__form_widget_config = {
             "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа')",
         },
         {
-          label: "Тип готового бизнеса",
+          label: "Планировка",
           type: "select",
           options: ["кабинетная", "коридорная", "открытая", "смешанная"],
           display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа')",
+            "(objectType === 'офис')",
         },
         {
           type: "string",
@@ -579,6 +579,7 @@ window.__form_widget_config = {
     {
       legend: "Внутренняя информация",
       name: "contacts",
+      display: "false", // TODO : этот раздел будем показывать только авторизованным "своим"
       fields: [
         {
           sm: 6,

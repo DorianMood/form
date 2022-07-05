@@ -19,6 +19,7 @@ function TextFieldWrapper({
       render={({ field }) => (
         <TextField
           disabled={!display}
+          display
           fullWidth
           label={label}
           name={name}

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useForm } from "react-hook-form";
-import { Stack, LinearProgress, Grid, Box } from "@mui/material";
+import { LinearProgress, Grid, Box } from "@mui/material";
 
 import "./App.css";
 import Form from "./Form";
@@ -13,13 +13,12 @@ function App({ config }) {
   const {
     control,
     handleSubmit,
-    watch,
-    formState: { errors },
+    watch
   } = useForm();
 
   React.useEffect(() => {
     setForm(config);
-  }, []);
+  }, [config]);
 
   if (form === undefined) {
     return (

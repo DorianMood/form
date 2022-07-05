@@ -11,13 +11,15 @@ import ImageInput from "./ImageInput";
 
 export function mapFields(fields, control, parameters, parametersValues) {
   return fields.map((field, fieldIndexInSection) => {
+
     const getFieldWrapper = () => {
-      let body;
-      let options;
+
+      let body, options;
       if (typeof field.display === typeof []) {
         options = field.options[0];
         field.display.forEach((condition, index) => {
           const conditionBody = `return ${condition}`;
+          // eslint-disable-next-line no-new-func
           const display = new Function(parameters, conditionBody);
           if (display(...parametersValues)) {
             body = conditionBody;
@@ -28,7 +30,14 @@ export function mapFields(fields, control, parameters, parametersValues) {
         body = `return ${field.display}`;
         options = field.options;
       }
+
+      // eslint-disable-next-line no-new-func
       const display = new Function(parameters, body)(...parametersValues);
+
+      if (!display) {
+        return null;
+      }
+
       switch (field.type) {
         case "string":
           return (

@@ -18,6 +18,7 @@ function ToggleWrapper({ control, label, name, options, display }) {
           exclusive
           onChange={field.onChange}
           disabled={!display}
+          display
         >
           {options.map((item, index) => (
             <ToggleButton value={item} aria-label={item} key={index}>
