@@ -12,7 +12,7 @@ window.__form_widget_config = {
         {
           name: "dealType",
           label: "Тип сделки",
-          display: true,
+          display: "true",
           type: "toggle",
           options: ["Аренда", "Продажа"],
           sm: 12,
@@ -67,7 +67,7 @@ window.__form_widget_config = {
         {
           type: "string",
           label: "Адрес поиск по справочнику",
-          display: true,
+          display: "dealType !== undefined",
         },
         {
           type: "switch",
@@ -330,7 +330,8 @@ window.__form_widget_config = {
           name: "Тип парковки",
           display:
             "(objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа')",
-          type: "string",
+          type: "select",
+          options: ['наземная', 'многоуровневая', 'подземная', 'на крыше']
         },
         {
           name: "Стоимость въезда",
@@ -342,7 +343,7 @@ window.__form_widget_config = {
       ],
     },
     {
-      legend: "Постройка",
+      legend: "О здании",
       name: "building",
       fields: [
         {
@@ -362,13 +363,48 @@ window.__form_widget_config = {
           display:
             "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа') || (objectType === 'здание' && dealType === 'Продажа')",
           type: "select",
-          options: ["1", "2"],
+          options: [
+            'Административное здание',
+            'Бизнес-центр',
+            'Деловой дом',
+            'Бизнес-парк',
+            'Объект свободного назначения',
+            'Производственный комплекс',
+            'Индустриальный парк',
+            'Промплощадка',
+            'Производственно-складской комплекс',
+            'Логистический комплекс',
+            'Логистический парк',
+            'Особняк',
+            'Производственное здание',
+            'Модульное здание',
+            'Многофункциональный комплекс',
+            'Офисно-гостиничный комплекс',
+            'Офисно-жилой комплекс',
+            'Офисно-складской комплекс',
+            'Офисное здание',
+            'Офисно-производственный комплекс',
+            'Имущественный комплекс',
+            'Жилой комплекс',
+            'Жилой дом',
+            'Торгово-деловой комплекс',
+            'Торгово-развлекательный центр',
+            'Торгово-складской комплекс',
+            'Торговый центр',
+            'Отдельно стоящее здание',
+            'Технопарк',
+            'Торгово-выставочный комплекс',
+            'Торгово-офисный комплекс',
+            'Склад',
+            'Другое'
+          ],
         },
         {
           name: "Класс здания",
           display:
             "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа') || (objectType === 'здание' && dealType === 'Продажа')",
-          type: "string",
+          type: "select",
+          options: ['А+', 'А', 'В+', 'В', 'В-', 'С']
         },
         {
           name: "Площадь здания",
@@ -421,6 +457,142 @@ window.__form_widget_config = {
           type: "string",
         },
       ],
+    },
+    {
+      legend: "Инфраструктура",
+      name: "infrastructure",
+      fields: [
+        {
+          name: "Автомойка",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Буфет",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Автосервис",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Столовая",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Центральная рецепция",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Гостиница",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Банкомат",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Выставочно-складской комплекс",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Аптека",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Отделение банка",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Кинотеатр",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Кафе",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Медицинский центр",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Салон красоты",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Фотосалон",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Нотариальная контора",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Бассейн",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Ателье одежды",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Складские помещения",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Парк",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Ресторан",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Фитнес-центр",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Супермаркет",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Минимаркет",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Торговая зона",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Конференц-зал",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+      ]
     },
     {
       legend: "Описание",

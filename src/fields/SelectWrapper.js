@@ -14,7 +14,7 @@ function SelectWrapper({ control, label, name, options, display }) {
   }, [display, field, options]);
 
   return (
-    <FormControl fullWidth disabled={!display} display>
+    <FormControl fullWidth disabled={!display}>
       <InputLabel>{label}</InputLabel>
       <Select
         defaultValue={options[0]}

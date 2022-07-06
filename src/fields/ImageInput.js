@@ -32,7 +32,6 @@ export default function ImageInput({ control, name, display }) {
           aria-label="Загрузите изображения"
           component="span"
           disabled={!display}
-          display={display}
         >
           <PhotoCameraIcon />
         </IconButton>
