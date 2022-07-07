@@ -68,6 +68,7 @@ export function mapFields(fields, control, parameters, parametersValues) {
               label={field.label || field.name}
               control={control}
               display={display}
+              defaultChecked={field.defaultChecked}
             />
           );
         case "select":

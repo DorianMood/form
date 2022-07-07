@@ -1,24 +1,20 @@
 import * as React from 'react'
 import { Switch, FormControlLabel } from "@mui/material";
-import { Controller } from "react-hook-form";
+import { useController } from "react-hook-form";
 
-export default function SwitchWrapper({ control, name, label, display }) {
+export default function SwitchWrapper({ control, name, label, display, defaultChecked }) {
+  const { field } = useController({ control, name });
+
   return (
-    <Controller
-      name={name}
-      control={control}
-      render={({ field }) => (
-        <FormControlLabel
-          control={
-            <Switch
-              onChange={(e) => field.onChange(e.target.checked)}
-              checked={Boolean(field.value)}
-              disabled={!display}
-            />
-          }
-          label={label}
+    <FormControlLabel
+      control={
+        <Switch
+          onChange={(e) => field.onChange(e.target.checked)}
+          checked={Boolean(field.value) || defaultChecked}
+          disabled={!display}
         />
-      )}
+      }
+      label={label}
     />
   );
 }

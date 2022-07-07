@@ -7,9 +7,12 @@ import Form from "./Form";
 import FieldSet from "./FieldSet";
 
 import { mapFields } from "./fields";
+import BX24 from "bx24-api";
 
 function App({ config }) {
   const [form, setForm] = React.useState();
+  const [user, setUser] = React.useState();
+
   const {
     control,
     handleSubmit,
@@ -19,6 +22,12 @@ function App({ config }) {
   React.useEffect(() => {
     setForm(config);
   }, [config]);
+
+  React.useEffect(() => {
+    BX24.callMethod('user.get').then(result => {
+      setUser(result.data())
+    })
+  }, [])
 
   if (form === undefined) {
     return (
@@ -41,6 +50,7 @@ function App({ config }) {
 
   return (
     <Box padding={2}>
+      <span>{user}</span>
       <Form name={form.name} onSubmit={handleSubmit(onSubmit)}>
         {form.sections.map((section, sectionIndex) => (
           <FieldSet

@@ -193,11 +193,10 @@ window.__form_widget_config = {
           name: "Количество мокрых точек",
           display:
             "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа')",
-          type: "string",
-          inputProps: {
-            min: 0,
-            step: 1,
-          },
+          type: "select",
+          options: [
+            "нет", "1", "2", "3", "4+"
+          ]
         },
         {
           name: "Электрическая мощность",
@@ -208,7 +207,7 @@ window.__form_widget_config = {
             min: 0,
             step: 1,
           },
-          units: "Ватт",
+          units: "кВт",
         },
         {
           name: "Назначение",
@@ -239,7 +238,10 @@ window.__form_widget_config = {
           name: "Доступ",
           display:
             "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа')",
-          type: "string",
+          type: "select",
+          options: [
+            "свободный", "пропускная система"
+          ]
         },
         {
           name: "Ворота",
@@ -271,11 +273,16 @@ window.__form_widget_config = {
             "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа') || (objectType === 'здание' && dealType === 'Продажа')",
           type: "switch",
         },
+        {
+          name: "Система пожаротушения",
+          display: "true",
+          type: "switch"
+        }
       ],
     },
     {
-      legend: "Мебель и оборудование",
-      name: "furniture",
+      legend: "Состояние",
+      name: "condition",
       fields: [
         {
           name: "Оборудование",
@@ -287,13 +294,19 @@ window.__form_widget_config = {
           name: "Состояние",
           display:
             "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа') || (objectType === 'здание' && dealType === 'Продажа')",
-          type: "string",
+          type: "select",
+          options: [
+            "офисная отделка", "под чистовую", "требуется косметический ремонт", "требуется капитальный ремонт"
+          ]
         },
         {
           name: "Мебель",
           display:
             "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'здание' && dealType === 'Продажа') || (objectType === 'готовый бизнес' && dealType === 'Продажа')",
-          type: "string",
+          type: "select",
+          options: [
+            "есть", "нет"
+          ]
         },
       ],
     },
@@ -407,6 +420,12 @@ window.__form_widget_config = {
           options: ['А+', 'А', 'В+', 'В', 'В-', 'С']
         },
         {
+          name: "Действующее",
+          display: "true",
+          defaultChecked: true,
+          type: "switch"
+        },
+        {
           name: "Площадь здания",
           display:
             "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа') || (objectType === 'здание' && dealType === 'Продажа')",
@@ -458,142 +477,11 @@ window.__form_widget_config = {
         },
       ],
     },
-    {
-      legend: "Инфраструктура",
-      name: "infrastructure",
-      fields: [
-        {
-          name: "Автомойка",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Буфет",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Автосервис",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Столовая",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Центральная рецепция",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Гостиница",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Банкомат",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Выставочно-складской комплекс",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Аптека",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Отделение банка",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Кинотеатр",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Кафе",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Медицинский центр",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Салон красоты",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Фотосалон",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Нотариальная контора",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Бассейн",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Ателье одежды",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Складские помещения",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Парк",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Ресторан",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Фитнес-центр",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Супермаркет",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Минимаркет",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Торговая зона",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Конференц-зал",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-      ]
-    },
+    //{
+    //legend: "Инфраструктура",
+    //name: "infrastructure",
+    //fields: []
+    //},
     {
       legend: "Описание",
       name: "description",
@@ -746,6 +634,137 @@ window.__form_widget_config = {
           type: "number",
           inputProps: { min: 0 },
         },
+        // infrastructure
+        {
+          name: "Автомойка",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Буфет",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Автосервис",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Столовая",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Центральная рецепция",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Гостиница",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Банкомат",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Выставочно-складской комплекс",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Аптека",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Отделение банка",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Кинотеатр",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Кафе",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Медицинский центр",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Салон красоты",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Фотосалон",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Нотариальная контора",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Бассейн",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Ателье одежды",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Складские помещения",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Парк",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Ресторан",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Фитнес-центр",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Супермаркет",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Минимаркет",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Торговая зона",
+          type: "switch",
+          display: "dealType !== undefined"
+        },
+        {
+          name: "Конференц-зал",
+          type: "switch",
+          display: "dealType !== undefined"
+        }
       ],
     },
     {
