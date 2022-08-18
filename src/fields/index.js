@@ -121,7 +121,8 @@ export function mapFields(fields, control, parameters, parametersValues) {
         item
         sm={field.sm || 3}
         container={field.type === undefined}
-        key={fieldIndexInSection}
+        key={fieldIndexInSection} // TODO : fix me
+        style={{ border: field.iblockName === "" ? "solid red" : undefined }}
       >
         {getFieldWrapper()}
       </Grid>

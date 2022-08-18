@@ -1,0 +1,1063 @@
+[
+    {
+        "NAME": "Фото галерея", // Фото
+        "CODE": "GALLERY",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "F",
+        "MULTIPLE": "Y",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "24",
+        "IBLOCK_ID": "2",
+        "NAME": "Цена, ₽", // Ареднная плата / Цена
+        "CODE": "SP_3T_PRICE",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "N",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "25",
+        "IBLOCK_ID": "2",
+        "NAME": "Общая площадь, м2", // Общая площадь
+        "CODE": "FT_TAUTO_SQUARE",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "N",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "26",
+        "IBLOCK_ID": "2",
+        "NAME": "Этаж", // Этаж
+        "CODE": "IC_6_FLOOR",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "L",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "27",
+        "IBLOCK_ID": "2",
+        "NAME": "Выполненные работы",
+        "CODE": "JOBS",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "Y",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "28",
+        "IBLOCK_ID": "2",
+        "NAME": "Характеристики",
+        "CODE": "CHARACTERISTICS",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "Y",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "53",
+        "IBLOCK_ID": "2",
+        "NAME": "Стоимость аренды", // Арендная плата / Цена
+        "CODE": "RENT",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "54",
+        "IBLOCK_ID": "2",
+        "NAME": "Тип помещения", // Тип помещения
+        "CODE": "CC_12T_TYPE",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "L",
+        "MULTIPLE": "Y",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "55",
+        "IBLOCK_ID": "2",
+        "NAME": "Сфера деятельности",
+        "CODE": "IC_12T_SPHERE",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "L",
+        "MULTIPLE": "Y",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "56",
+        "IBLOCK_ID": "2",
+        "NAME": "Город", // Адрес поиск по справочнику
+        "CODE": "DD_3_CITY",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "L",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "57",
+        "IBLOCK_ID": "2",
+        "NAME": "Район", // Адрес поиск по справочнику
+        "CODE": "DD_3_AREA",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "L",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "58",
+        "IBLOCK_ID": "2",
+        "NAME": "Улица", // Адрес поиск по справочнику
+        "CODE": "DD_3_STREET",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "59",
+        "IBLOCK_ID": "2",
+        "NAME": "Дом", // Адрес поиск по справочнику
+        "CODE": "DD_3_NUM",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "61",
+        "IBLOCK_ID": "2",
+        "NAME": "Количество комнат",
+        "CODE": "IC_3T_ROOMS",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "L",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "63",
+        "IBLOCK_ID": "2",
+        "NAME": "Метро",
+        "CODE": "DD_3_METRO",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "L",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "64",
+        "IBLOCK_ID": "2",
+        "NAME": "До метро км",
+        "CODE": "SP_3T_FOR_METRO_KM",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "N",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "65",
+        "IBLOCK_ID": "2",
+        "NAME": "Исключения (Этаж)",
+        "CODE": "IC_3_EXCEPTIONS",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "L",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "66",
+        "IBLOCK_ID": "2",
+        "NAME": "Этажей в доме", // Этажность
+        "CODE": "FT_TAUTO_FLOORS_HOUSE",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "N",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "67",
+        "IBLOCK_ID": "2",
+        "NAME": "Общая площадь, м2", // Общая площадь
+        "CODE": "FT_TAUTO_TOTAL_AREA",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "N",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "68",
+        "IBLOCK_ID": "2",
+        "NAME": "Жилая, м2",
+        "CODE": "FT_TAUTO_LIVING_AREA",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "N",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "69",
+        "IBLOCK_ID": "2",
+        "NAME": "Кухня, м2",
+        "CODE": "FT_TAUTO_CITCHEN_AREA",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "N",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "70",
+        "IBLOCK_ID": "2",
+        "NAME": "Балкон / лоджия",
+        "CODE": "IC_3T_LOGGIA",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "L",
+        "MULTIPLE": "Y",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "71",
+        "IBLOCK_ID": "2",
+        "NAME": "Материал дома",
+        "CODE": "IC_12T_MATERIAL",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "L",
+        "MULTIPLE": "Y",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "72",
+        "IBLOCK_ID": "2",
+        "NAME": "Тип дома", // Тип здания
+        "CODE": "IC_12T_HOUSE_TYPE",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "L",
+        "MULTIPLE": "Y",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "73",
+        "IBLOCK_ID": "2",
+        "NAME": "Возможна ипотека",
+        "CODE": "CH_6_MORTGAGE",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "L",
+        "MULTIPLE": "Y",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "74",
+        "IBLOCK_ID": "2",
+        "NAME": "Этаж", // Этаж
+        "CODE": "FT_TAUTO_HOUSE_LEVEL",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "N",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "75",
+        "IBLOCK_ID": "2",
+        "NAME": "Область", // Адрес поиск по справочнику
+        "CODE": "DD_3_REGION",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "L",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "76",
+        "IBLOCK_ID": "2",
+        "NAME": "Населенный пункт", // Адрес поиск по справочнику
+        "CODE": "DD_3_LOCALITY",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "L",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "77",
+        "IBLOCK_ID": "2",
+        "NAME": "Направление выезда", // Адрес поиск по справочнику
+        "CODE": "DD_3_DIRECTION",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "79",
+        "IBLOCK_ID": "2",
+        "NAME": "Расположен в коттеджном поселке",
+        "CODE": "CH_3_COTTAGE",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "L",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "80",
+        "IBLOCK_ID": "2",
+        "NAME": "Ориентир",
+        "CODE": "DD_3_REFERENCE",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "81",
+        "IBLOCK_ID": "2",
+        "NAME": "Улица", // Адрес поиск по справочнику
+        "CODE": "DD_6_NUM_OUTSIDE",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "83",
+        "IBLOCK_ID": "2",
+        "NAME": "Этажность", // Этажность
+        "CODE": "FT_TAUTO_STOREYS",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "N",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "87",
+        "IBLOCK_ID": "2",
+        "NAME": "Материал дома",
+        "CODE": "IC_6T_MATERIAL_HOUSE_COUNTRY",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "L",
+        "MULTIPLE": "Y",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "88",
+        "IBLOCK_ID": "2",
+        "NAME": "Отопление", // Отопление
+        "CODE": "IC_6T_HEATING",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "L",
+        "MULTIPLE": "Y",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "89",
+        "IBLOCK_ID": "2",
+        "NAME": "Наличие в доме",
+        "CODE": "IC_6T_AVAILABILITY",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "L",
+        "MULTIPLE": "Y",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "90",
+        "IBLOCK_ID": "2",
+        "NAME": "Координаты",
+        "CODE": "COORDS",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "91",
+        "IBLOCK_ID": "2",
+        "NAME": "Цена (м2), ₽ ",
+        "CODE": "SP_3T_PRICE_SQUARE",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "N",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "92",
+        "IBLOCK_ID": "2",
+        "NAME": "Фото планировок",
+        "CODE": "LAYOUTS",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "F",
+        "MULTIPLE": "Y",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "93",
+        "IBLOCK_ID": "2",
+        "NAME": "До метро (минут)",
+        "CODE": "SP_3T_FOR_METRO_MIN",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "N",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "94",
+        "IBLOCK_ID": "2",
+        "NAME": "Доходность %",
+        "CODE": "SP_3T_PROFIT",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "N",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "95",
+        "IBLOCK_ID": "2",
+        "NAME": "Срок окупаемости",
+        "CODE": "FT_AUTO_PAYBACK",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "N",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "96",
+        "IBLOCK_ID": "2",
+        "NAME": "Помещение арендует сетевой оператор",
+        "CODE": "CH_3_NETWORK_RENT",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "L",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "97",
+        "IBLOCK_ID": "2",
+        "NAME": "Этаж",
+        "CODE": "FT_3T_RENT_LEVEL",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "N",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "98",
+        "IBLOCK_ID": "2",
+        "NAME": "Специалист по объекту", // Получаем из bx24
+        "CODE": "SPECIALIST_OBJECT",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "E",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "4"
+    },
+    {
+        "ID": "99",
+        "IBLOCK_ID": "2",
+        "NAME": "Специалист по кредиту",
+        "CODE": "SPECIALIST_CREDIT",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "E",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "4"
+    },
+    {
+        "ID": "100",
+        "IBLOCK_ID": "2",
+        "NAME": "Дом",
+        "CODE": "VILLAGE_HOUSE",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "101",
+        "IBLOCK_ID": "2",
+        "NAME": "Этажи",
+        "CODE": "FT_3T_COMMERS_LEVEL",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "N",
+        "MULTIPLE": "Y",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "102",
+        "IBLOCK_ID": "2",
+        "NAME": "Этажей в здании",
+        "CODE": "PROP_54",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "N",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "103",
+        "IBLOCK_ID": "2",
+        "NAME": "Высота потолков, м", // Высота потолков
+        "CODE": "PROP_1",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "104",
+        "IBLOCK_ID": "2",
+        "NAME": "Отделка", // Состояние ???
+        "CODE": "PROP_2",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "105",
+        "IBLOCK_ID": "2",
+        "NAME": "Тип спецотделки",
+        "CODE": "PROP_3",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "106",
+        "IBLOCK_ID": "2",
+        "NAME": "1-я линия", // Линия === 1 ???
+        "CODE": "PROP_4",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "107",
+        "IBLOCK_ID": "2",
+        "NAME": "Метро",
+        "CODE": "PROP_5",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "L",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "108",
+        "IBLOCK_ID": "2",
+        "NAME": "До метро, минут пешком",
+        "CODE": "PROP_6",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "109",
+        "IBLOCK_ID": "2",
+        "NAME": "До метро, минут на транспорте",
+        "CODE": "PROP_7",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "110",
+        "IBLOCK_ID": "2",
+        "NAME": "Отдельный вход", // Вход ???
+        "CODE": "PROP_8",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "111",
+        "IBLOCK_ID": "2",
+        "NAME": "Количество входов на объекте", // Вход ???
+        "CODE": "PROP_9",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "112",
+        "IBLOCK_ID": "2",
+        "NAME": "Парковка",
+        "CODE": "PROP_10",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "113",
+        "IBLOCK_ID": "2",
+        "NAME": "Общее количество машиномест", // Количество мест
+        "CODE": "PROP_11",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "114",
+        "IBLOCK_ID": "2",
+        "NAME": "Интернет",
+        "CODE": "PROP_12",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "115",
+        "IBLOCK_ID": "2",
+        "NAME": "Провайдеры",
+        "CODE": "PROP_13",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "116",
+        "IBLOCK_ID": "2",
+        "NAME": "Городской телефон",
+        "CODE": "PROP_14",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "117",
+        "IBLOCK_ID": "2",
+        "NAME": "Тип здания", // Тип здания
+        "CODE": "PROP_15",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "118",
+        "IBLOCK_ID": "2",
+        "NAME": "Класс здания", // Класс здания
+        "CODE": "PROP_16",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "119",
+        "IBLOCK_ID": "2",
+        "NAME": "Материал стен",
+        "CODE": "PROP_17",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "120",
+        "IBLOCK_ID": "2",
+        "NAME": "Год постройки", // Год постройки
+        "CODE": "PROP_18",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "121",
+        "IBLOCK_ID": "2",
+        "NAME": "Лифты в здании", // Лифты (для зданий) или Лифты (для складов)
+        "CODE": "PROP_19",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "122",
+        "IBLOCK_ID": "2",
+        "NAME": "Охрана здания",
+        "CODE": "PROP_20",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "123",
+        "IBLOCK_ID": "2",
+        "NAME": "Система газоснабжения",
+        "CODE": "PROP_21",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "124",
+        "IBLOCK_ID": "2",
+        "NAME": "Отопление", // Отопление
+        "CODE": "PROP_22",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "125",
+        "IBLOCK_ID": "2",
+        "NAME": "Водоснабжение",
+        "CODE": "PROP_23",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "126",
+        "IBLOCK_ID": "2",
+        "NAME": "Кондиционирование", // Кондиционирование
+        "CODE": "PROP_24",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "127",
+        "IBLOCK_ID": "2",
+        "NAME": "Пожарная безопасность", // Система пожаротушения ???
+        "CODE": "PROP_25",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "128",
+        "IBLOCK_ID": "2",
+        "NAME": "Погрузочно/разгрузочная зона",
+        "CODE": "PROP_26",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "129",
+        "IBLOCK_ID": "2",
+        "NAME": "Разгрузка под фуру",
+        "CODE": "PROP_27",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "130",
+        "IBLOCK_ID": "2",
+        "NAME": "Подключенная мощность, кВт", // Электрическая мощность
+        "CODE": "PROP_28",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "131",
+        "IBLOCK_ID": "2",
+        "NAME": "Возможность увеличения мощности",
+        "CODE": "PROP_29",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "132",
+        "IBLOCK_ID": "2",
+        "NAME": "Мебель", // Мебель
+        "CODE": "PROP_30",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "133",
+        "IBLOCK_ID": "2",
+        "NAME": "Оборудование", // Оборудование
+        "CODE": "PROP_31",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "134",
+        "IBLOCK_ID": "2",
+        "NAME": "Холодильная камера",
+        "CODE": "PROP_32",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "135",
+        "IBLOCK_ID": "2",
+        "NAME": "Ворота", // Ворота
+        "CODE": "PROP_33",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "136",
+        "IBLOCK_ID": "2",
+        "NAME": "Размер ворот",
+        "CODE": "PROP_34",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "137",
+        "IBLOCK_ID": "2",
+        "NAME": "Полы",
+        "CODE": "PROP_35",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "138",
+        "IBLOCK_ID": "2",
+        "NAME": "Уровень пола",
+        "CODE": "PROP_36",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "139",
+        "IBLOCK_ID": "2",
+        "NAME": "Подъездные пути",
+        "CODE": "PROP_37",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "140",
+        "IBLOCK_ID": "2",
+        "NAME": "Ж/д тупик",
+        "CODE": "PROP_38",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "141",
+        "IBLOCK_ID": "2",
+        "NAME": "ППЖТ",
+        "CODE": "PROP_39",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "142",
+        "IBLOCK_ID": "2",
+        "NAME": "Грузо-подъемные механизмы",
+        "CODE": "PROP_40",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "143",
+        "IBLOCK_ID": "2",
+        "NAME": "Площадь земельного участка (сот.)", // Участок (площадь)
+        "CODE": "PROP_41",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "144",
+        "IBLOCK_ID": "2",
+        "NAME": "Категория земли", // Категория
+        "CODE": "PROP_42",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "145",
+        "IBLOCK_ID": "2",
+        "NAME": "Назначение земельного участка",
+        "CODE": "PROP_43",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "146",
+        "IBLOCK_ID": "2",
+        "NAME": "Налог на землю",
+        "CODE": "PROP_44",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "147",
+        "IBLOCK_ID": "2",
+        "NAME": "Работают с НДС",
+        "ACTIVE": "Y",
+        "SORT": "8",
+        "CODE": "PROP_45",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0",
+        "VERSION": "1"
+    },
+    {
+        "ID": "148",
+        "IBLOCK_ID": "2",
+        "NAME": "Обеспечительный платеж", // Обеспечительный платеж
+        "ACTIVE": "Y",
+        "SORT": "8",
+        "CODE": "PROP_46",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0",
+        "VERSION": "1"
+    },
+    {
+        "ID": "149",
+        "IBLOCK_ID": "2",
+        "NAME": "Размер комиссии для клиента",
+        "ACTIVE": "Y",
+        "SORT": "8",
+        "CODE": "PROP_47",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0",
+        "VERSION": "1"
+    },
+    {
+        "ID": "150",
+        "IBLOCK_ID": "2",
+        "NAME": "Арендные каникулы", // Арендные каникулы
+        "CODE": "PROP_48",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "151",
+        "IBLOCK_ID": "2",
+        "NAME": "Коммунальные и эксплуатационные платежи",
+        "CODE": "PROP_49",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "152",
+        "IBLOCK_ID": "2",
+        "NAME": "Торг",
+        "CODE": "PROP_50",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "153",
+        "IBLOCK_ID": "2",
+        "NAME": "Арендная ставка действующего арендатора за кв.м",
+        "CODE": "PROP_51",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "154",
+        "IBLOCK_ID": "2",
+        "NAME": "Срок договора аренды", // Минимальный срок аренды
+        "CODE": "PROP_52",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "155",
+        "IBLOCK_ID": "2",
+        "NAME": "Арендатор",
+        "CODE": "PROP_53",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "S",
+        "MULTIPLE": "N",
+        "LINK_IBLOCK_ID": "0"
+    },
+    {
+        "ID": "184",
+        "IBLOCK_ID": "2",
+        "NAME": "Цена от",
+        "ACTIVE": "Y",
+        "SORT": "500",
+        "CODE": "PRICE_FROM",
+        "MULTIPLE": "N",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "L",
+        "LINK_IBLOCK_ID": "0",
+        "VERSION": "1"
+    },
+    {
+        "ID": "186",
+        "IBLOCK_ID": "2",
+        "ACTIVE": "Y",
+        "SORT": "500",
+        "NAME": "Тип цены",
+        "LINK_IBLOCK_ID": "0",
+        "DEFAULT_VALUE": "",
+        "MULTIPLE": "N",
+        "CODE": "TYPE_PRICE"
+    },
+    {
+        "ID": "188",
+        "IBLOCK_ID": "2",
+        "NAME": "Эксклюзив",
+        "ACTIVE": "Y",
+        "CODE": "EXLUSIVE",
+        "DEFAULT_VALUE": "",
+        "PROPERTY_TYPE": "L",
+        "MULTIPLE": "N"
+    }
+]
