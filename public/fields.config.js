@@ -65,14 +65,6 @@ window.__form_widget_config = {
           sm: 4,
         },
         {
-          name: "Тип готового бизнеса",
-          iblockName: "",
-          type: "select",
-          options: ["арендный бизнес", "готовый бизнес"],
-          display: "dealType !== undefined && objectType === 'готовый бизнес'",
-          sm: 4,
-        },
-        {
           name: "Выставить на сайт",
           iblockName: "NEW_PROP_86",
           type: "switch",
@@ -86,82 +78,53 @@ window.__form_widget_config = {
       name: "general",
       fields: [
         {
-          type: "string",
-          iblockName: "",
-          label: "Адрес поиск по справочнику",
-          display: "dealType !== undefined",
-        },
-        {
           type: "switch",
           iblockName: "NEW_PROP_81",
           label: "Скрыть точный адрес в объявлении",
-          display:
-            "(objectType === 'готовый бизнес' && dealType === 'Продажа' && objectType !== 'коммерческая земля')",
+          display: "(dealType==='Продажа' && objectType==='Арендный бизнес')"
         },
         {
           type: "string",
           iblockName: "NEW_PROP_82",
           label: "Название ЖК",
           display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа')",
+            "(dealType==='Аренда' && objectType==='офис') || (dealType==='Аренда' && objectType==='торговая площадь') || (dealType==='Аренда' && objectType==='склад') || (dealType==='Аренда' && objectType==='ПСН') || (dealType==='Аренда ' && objectType==='земля') || (dealType==='Продажа' && objectType==='офис') || (dealType==='Продажа' && objectType==='торговая площадь') || (dealType==='Продажа' && objectType==='склад') || (dealType==='Продажа' && objectType==='ПСН') || (dealType==='Продажа' && objectType==='земля')"
         },
         {
           type: "number",
           iblockName: "NEW_PROP_83",
           label: "Корпус",
           display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа')",
+            "(dealType==='Аренда' && objectType==='офис') || (dealType==='Аренда' && objectType==='торговая площадь') || (dealType==='Аренда' && objectType==='склад') || (dealType==='Аренда' && objectType==='ПСН') || (dealType==='Продажа' && objectType==='офис') || (dealType==='Продажа' && objectType==='торговая площадь') || (dealType==='Продажа' && objectType==='склад') || (dealType==='Продажа' && objectType==='ПСН')"
         },
         {
           type: "string",
           iblockName: "NEW_PROP_84",
           label: "Кадастровый номер",
           display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа') || (objectType === 'здание' && dealType === 'Продажа')",
+            "(dealType==='Аренда' && objectType==='офис') || (dealType==='Аренда' && objectType==='торговая площадь') || (dealType==='Аренда' && objectType==='склад') || (dealType==='Аренда' && objectType==='производство') || (dealType==='Аренда' && objectType==='ПСН') || (dealType==='Аренда' && objectType==='здание') || (dealType==='Аренда ' && objectType==='земля') || (dealType==='Продажа' && objectType==='офис') || (dealType==='Продажа' && objectType==='торговая площадь') || (dealType==='Продажа' && objectType==='склад') || (dealType==='Продажа' && objectType==='производство') || (dealType==='Продажа' && objectType==='ПСН') || (dealType==='Продажа' && objectType==='здание') || (dealType==='Продажа' && objectType==='земля')",
         },
         {
           type: "select",
           iblockName: "NEW_PROP_85",
           label: "Тип помещения",
           display:
-            "(objectType === 'торговая площадь')",
+            "(dealType==='Аренда' && objectType==='торговая площадь') || (dealType==='Продажа' && objectType==='торговая площадь')",
           options: ["street retail", "помещение в ТЦ"],
-        },
-        {
-          type: "number",
-          iblockName: "",
-          label: "Общая площадь",
-          display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа') || (objectType === 'готовый бизнес' && dealType === 'Продажа')",
-          units: "м2",
-        },
-        {
-          type: "switch",
-          iblockName: "",
-          label: "Возможна аренда/продажа частями",
-          display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа')",
-        },
-        {
-          type: "number",
-          iblockName: "",
-          label: "Этаж",
-          display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа') || (objectType === 'готовый бизнес' && dealType === 'Продажа')",
         },
         {
           type: "number",
           iblockName: "",
           label: "Этажность",
           display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа') || (objectType === 'здание' && dealType === 'Продажа')",
+            "(dealType==='Аренда' && objectType==='офис') || (dealType==='Аренда' && objectType==='торговая площадь') || (dealType==='Аренда' && objectType==='склад') || (dealType==='Аренда' && objectType==='производство') || (dealType==='Аренда' && objectType==='ПСН') || (dealType==='Аренда' && objectType==='здание') || (dealType==='Продажа' && objectType==='офис') || (dealType==='Продажа' && objectType==='торговая площадь') || (dealType==='Продажа' && objectType==='склад') || (dealType==='Продажа' && objectType==='производство') || (dealType==='Продажа' && objectType==='ПСН') || (dealType==='Продажа' && objectType==='здание')",
         },
         {
           type: "number",
           iblockName: "NEW_PROP_1",
           label: "Высота потолков",
           display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа') || (objectType === 'здание' && dealType === 'Продажа')",
+            "(dealType==='Аренда' && objectType==='офис') || (dealType==='Аренда' && objectType==='торговая площадь') || (dealType==='Аренда' && objectType==='склад') || (dealType==='Аренда' && objectType==='производство') || (dealType==='Аренда' && objectType==='ПСН') || (dealType==='Аренда' && objectType==='здание') || (dealType==='Продажа' && objectType==='офис') || (dealType==='Продажа' && objectType==='торговая площадь') || (dealType==='Продажа' && objectType==='склад') || (dealType==='Продажа' && objectType==='производство') || (dealType==='Продажа' && objectType==='ПСН') || (dealType==='Продажа' && objectType==='здание')",
           units: "м",
         },
         {
@@ -169,14 +132,14 @@ window.__form_widget_config = {
           iblockName: "NEW_PROP_60",
           label: "Витринные окна",
           display:
-            "(objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа')",
+            "(dealType==='Аренда' && objectType==='торговая площадь') || (dealType==='Аренда' && objectType==='ПСН') || (dealType==='Продажа' && objectType==='торговая площадь') || (dealType==='Продажа' && objectType==='ПСН')",
         },
         {
           type: "switch",
           iblockName: "NEW_PROP_61",
           label: "Помещение занято",
           display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа')",
+            "(dealType==='Аренда' && objectType==='офис') || (dealType==='Аренда' && objectType==='торговая площадь') || (dealType==='Аренда' && objectType==='ПСН') || (dealType==='Продажа' && objectType==='офис') || (dealType==='Продажа' && objectType==='торговая площадь') || (dealType==='Продажа' && objectType==='ПСН')",
         },
         {
           label: "Планировка",
@@ -184,21 +147,14 @@ window.__form_widget_config = {
           type: "select",
           options: ["кабинетная", "коридорная", "открытая", "смешанная"],
           display:
-            "(objectType === 'офис')",
-        },
-        {
-          type: "string",
-          iblockName: "",
-          label: "Сетка колон",
-          display:
-            "(objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа')",
+            "(dealType==='Аренда' && objectType==='офис') || (dealType==='Продажа' && objectType==='офис')",
         },
         {
           type: "string",
           iblockName: "NEW_PROP_63",
           label: "Материал пола",
           display:
-            "(objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа')",
+            "(dealType==='Аренда' && objectType==='склад') || (dealType==='Аренда' && objectType==='производство') || (dealType==='Продажа' && objectType==='склад') || (dealType==='Продажа' && objectType==='производство')",
         },
       ],
     },
@@ -207,10 +163,10 @@ window.__form_widget_config = {
       name: "communications",
       fields: [
         {
-          name: "Лифты (для зданий)",
+          name: "Лифты",
           iblockName: "NEW_PROP_19",
           display:
-            "(objectType === 'здание' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Продажа')",
+            "(dealType==='Аренда' && objectType==='склад') || (dealType==='Аренда' && objectType==='производство') || (dealType==='Аренда' && objectType==='здание') || (dealType==='Продажа' && objectType==='склад') || (dealType==='Продажа' && objectType==='производство') || (dealType==='Продажа' && objectType==='здание')",
           type: "number",
           inputProps: {
             min: 0,
@@ -221,7 +177,7 @@ window.__form_widget_config = {
           name: "Количество мокрых точек",
           iblockName: "NEW_PROP_64",
           display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа')",
+            "(dealType==='Аренда' && objectType==='офис') || (dealType==='Аренда' && objectType==='торговая площадь') || (dealType==='Аренда' && objectType==='склад') || (dealType==='Аренда' && objectType==='производство') || (dealType==='Аренда' && objectType==='ПСН') || (dealType==='Продажа' && objectType==='офис') || (dealType==='Продажа' && objectType==='торговая площадь') || (dealType==='Продажа' && objectType==='склад') || (dealType==='Продажа' && objectType==='производство') || (dealType==='Продажа' && objectType==='ПСН')",
           type: "select",
           options: [
             "нет", "1", "2", "3", "4+"
@@ -231,7 +187,7 @@ window.__form_widget_config = {
           name: "Электрическая мощность",
           iblockName: "NEW_PROP_28",
           display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа')",
+            "(dealType==='Аренда' && objectType==='офис') || (dealType==='Аренда' && objectType==='торговая площадь') || (dealType==='Аренда' && objectType==='склад') || (dealType==='Аренда' && objectType==='производство') || (dealType==='Аренда' && objectType==='ПСН') || (dealType==='Аренда ' && objectType==='земля') || (dealType==='Продажа' && objectType==='офис') || (dealType==='Продажа' && objectType==='торговая площадь') || (dealType==='Продажа' && objectType==='склад') || (dealType==='Продажа' && objectType==='производство') || (dealType==='Продажа' && objectType==='ПСН') || (dealType==='Продажа' && objectType==='земля')",
           type: "string",
           inputProps: {
             min: 0,
@@ -240,39 +196,24 @@ window.__form_widget_config = {
           units: "кВт",
         },
         {
-          name: "Назначение",
-          iblockName: "",
-          display:
-            "(objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа') || (objectType === 'готовый бизнес' && dealType === 'Продажа')",
-          type: "select",
-          options: ["1", "2"],
-        },
-        {
           name: "Инфраструктура",
           iblockName: "NEW_PROP_74",
           display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа')",
-          type: "string",
-        },
-        {
-          name: "Дополнительные услуги",
-          iblockName: "",
-          display:
-            "(objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа')",
+            "(dealType==='Аренда' && objectType==='офис') || (dealType==='Аренда' && objectType==='торговая площадь') || (dealType==='Аренда' && objectType==='склад') || (dealType==='Аренда' && objectType==='производство') || (dealType==='Продажа' && objectType==='офис') || (dealType==='Продажа' && objectType==='торговая площадь') || (dealType==='Продажа' && objectType==='склад') || (dealType==='Продажа' && objectType==='производство')",
           type: "string",
         },
         {
           name: "Вход",
           iblockName: "NEW_PROP_8",
           display:
-            "(objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа') || (objectType === 'здание' && dealType === 'Продажа')",
+            "(dealType==='Аренда' && objectType==='торговая площадь') || (dealType==='Аренда' && objectType==='ПСН') || (dealType==='Аренда' && objectType==='здание') || (dealType==='Продажа' && objectType==='торговая площадь') || (dealType==='Продажа' && objectType==='ПСН') || (dealType==='Продажа' && objectType==='здание')",
           type: "string",
         },
         {
           name: "Доступ",
           iblockName: "NEW_PROP_65",
           display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа')",
+            "(dealType==='Аренда' && objectType==='офис') || (dealType==='Продажа' && objectType==='офис')",
           type: "select",
           options: [
             "свободный", "пропускная система"
@@ -282,41 +223,41 @@ window.__form_widget_config = {
           name: "Ворота",
           iblockName: "NEW_PROP_33",
           display:
-            "(objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа')",
+            "(dealType==='Аренда' && objectType==='склад') || (dealType==='Аренда' && objectType==='производство') || (dealType==='Продажа' && objectType==='склад') || (dealType==='Продажа' && objectType==='производство')",
           type: "switch",
         },
         {
           name: "Крановое оборудование",
           iblockName: "NEW_PROP_40",
           display:
-            "(objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа')",
+            "(dealType==='Аренда' && objectType==='склад') || (dealType==='Аренда' && objectType==='производство') || (dealType==='Продажа' && objectType==='склад') || (dealType==='Продажа' && objectType==='производство')",
           type: "switch",
         },
         {
           name: "Вентиляция",
           iblockName: "NEW_PROP_72",
           display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа') || (objectType === 'здание' && dealType === 'Продажа')",
+            "(dealType==='Аренда' && objectType==='офис') || (dealType==='Аренда' && objectType==='торговая площадь') || (dealType==='Аренда' && objectType==='склад') || (dealType==='Аренда' && objectType==='производство') || (dealType==='Аренда' && objectType==='ПСН') || (dealType==='Аренда' && objectType==='здание') || (dealType==='Продажа' && objectType==='офис') || (dealType==='Продажа' && objectType==='торговая площадь') || (dealType==='Продажа' && objectType==='склад') || (dealType==='Продажа' && objectType==='производство') || (dealType==='Продажа' && objectType==='ПСН') || (dealType==='Продажа' && objectType==='здание')",
           type: "switch",
         },
         {
           name: "Кондиционирование",
           iblockName: "NEW_PROP_24",
           display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа') || (objectType === 'здание' && dealType === 'Продажа')",
+            "(dealType==='Аренда' && objectType==='офис') || (dealType==='Аренда' && objectType==='торговая площадь') || (dealType==='Аренда' && objectType==='склад') || (dealType==='Аренда' && objectType==='производство') || (dealType==='Аренда' && objectType==='ПСН') || (dealType==='Аренда' && objectType==='здание') || (dealType==='Продажа' && objectType==='офис') || (dealType==='Продажа' && objectType==='торговая площадь') || (dealType==='Продажа' && objectType==='склад') || (dealType==='Продажа' && objectType==='производство') || (dealType==='Продажа' && objectType==='ПСН') || (dealType==='Продажа' && objectType==='здание')",
           type: "switch",
         },
         {
           name: "Отопление",
           iblockName: "NEW_PROP_22",
           display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа') || (objectType === 'здание' && dealType === 'Продажа')",
+            "(dealType==='Аренда' && objectType==='офис') || (dealType==='Аренда' && objectType==='торговая площадь') || (dealType==='Аренда' && objectType==='склад') || (dealType==='Аренда' && objectType==='производство') || (dealType==='Аренда' && objectType==='ПСН') || (dealType==='Аренда' && objectType==='здание') || (dealType==='Продажа' && objectType==='офис') || (dealType==='Продажа' && objectType==='торговая площадь') || (dealType==='Продажа' && objectType==='склад') || (dealType==='Продажа' && objectType==='производство') || (dealType==='Продажа' && objectType==='ПСН') || (dealType==='Продажа' && objectType==='здание')",
           type: "switch",
         },
         {
           name: "Система пожаротушения",
           iblockName: "NEW_PROP_73",
-          display: "true",
+          display: "(dealType==='Аренда' && objectType==='офис') || (dealType==='Аренда' && objectType==='торговая площадь') || (dealType==='Аренда' && objectType==='склад') || (dealType==='Аренда' && objectType==='производство') || (dealType==='Аренда' && objectType==='ПСН') || (dealType==='Аренда' && objectType==='здание') || (dealType==='Продажа' && objectType==='офис') || (dealType==='Продажа' && objectType==='торговая площадь') || (dealType==='Продажа' && objectType==='склад') || (dealType==='Продажа' && objectType==='производство') || (dealType==='Продажа' && objectType==='ПСН') || (dealType==='Продажа' && objectType==='здание')",
           type: "switch"
         }
       ],
@@ -326,17 +267,10 @@ window.__form_widget_config = {
       name: "condition",
       fields: [
         {
-          name: "Оборудование",
-          iblockName: "",
-          display:
-            "(objectType === 'готовый бизнес' && dealType === 'Продажа')",
-          type: "string",
-        },
-        {
           name: "Состояние",
           iblockName: "NEW_PROP_2",
           display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа') || (objectType === 'здание' && dealType === 'Продажа')",
+            "(dealType==='Аренда' && objectType==='офис') || (dealType==='Аренда' && objectType==='торговая площадь') || (dealType==='Аренда' && objectType==='склад') || (dealType==='Аренда' && objectType==='производство') || (dealType==='Аренда' && objectType==='ПСН') || (dealType==='Аренда' && objectType==='здание') || (dealType==='Продажа' && objectType==='офис') || (dealType==='Продажа' && objectType==='торговая площадь') || (dealType==='Продажа' && objectType==='склад') || (dealType==='Продажа' && objectType==='производство') || (dealType==='Продажа' && objectType==='ПСН') || (dealType==='Продажа' && objectType==='здание')",
           type: "select",
           options: [
             "офисная отделка", "под чистовую", "требуется косметический ремонт", "требуется капитальный ремонт"
@@ -346,7 +280,7 @@ window.__form_widget_config = {
           name: "Мебель",
           iblockName: "NEW_PROP_30",
           display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'здание' && dealType === 'Продажа') || (objectType === 'готовый бизнес' && dealType === 'Продажа')",
+            "(dealType==='Аренда' && objectType==='офис') || (dealType==='Аренда' && objectType==='торговая площадь') || (dealType==='Аренда' && objectType==='здание') || (dealType==='Продажа' && objectType==='офис') || (dealType==='Продажа' && objectType==='торговая площадь') || (dealType==='Продажа' && objectType==='здание') || (dealType==='Продажа' && objectType==='Арендный бизнес')",
           type: "select",
           options: [
             "есть", "нет"
@@ -362,46 +296,23 @@ window.__form_widget_config = {
           name: "Парковка (для офиса, здания)",
           iblockName: "NEW_PROP_10",
           display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'здание' && dealType === 'Продажа')",
+            "(dealType==='Аренда' && objectType==='офис') || (dealType==='Аренда' && objectType==='здание') || (dealType==='Продажа' && objectType==='офис') || (dealType==='Продажа' && objectType==='здание')",
           type: "switch",
         },
         {
           name: "Парковка (для склада производства)",
           iblockName: "NEW_PROP_66",
           display:
-            "(objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа')",
+            "(dealType==='Аренда' && objectType==='склад') || (dealType==='Аренда' && objectType==='производство') || (dealType==='Продажа' && objectType==='склад') || (dealType==='Продажа' && objectType==='производство')",
           type: "switch",
         },
         {
-          name: "Количество мест",
-          iblockName: "",
+          name: "Тип парковки (для склада офиса)",
+          iblockName: "NEW_PROP_67",
           display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа') || (objectType === 'здание' && dealType === 'Продажа')",
-          type: "number",
-        },
-        {
-          name: "Стоимость парковки",
-          iblockName: "",
-          display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'здание' && dealType === 'Продажа')",
-          type: "string",
-          units: "₽",
-        },
-        {
-          name: "Тип парковки",
-          iblockName: "",
-          display:
-            "(objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа')",
+            "(dealType==='Аренда' && objectType==='склад') || (dealType==='Аренда' && objectType==='производство') || (dealType==='Продажа' && objectType==='склад') || (dealType==='Продажа' && objectType==='производство')",
           type: "select",
           options: ['наземная', 'многоуровневая', 'подземная', 'на крыше']
-        },
-        {
-          name: "Стоимость въезда",
-          iblockName: "",
-          display:
-            "(objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа')",
-          type: "string",
-          units: "₽",
         },
       ],
     },
@@ -413,21 +324,21 @@ window.__form_widget_config = {
           name: "Название здания",
           iblockName: "NEW_PROP_68",
           display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа') || (objectType === 'здание' && dealType === 'Продажа')",
+            "(dealType==='Аренда' && objectType==='офис') || (dealType==='Аренда' && objectType==='торговая площадь') || (dealType==='Аренда' && objectType==='склад') || (dealType==='Аренда' && objectType==='производство') || (dealType==='Аренда' && objectType==='ПСН') || (dealType==='Аренда' && objectType==='здание') || (dealType==='Продажа' && objectType==='офис') || (dealType==='Продажа' && objectType==='торговая площадь') || (dealType==='Продажа' && objectType==='склад') || (dealType==='Продажа' && objectType==='производство') || (dealType==='Продажа' && objectType==='ПСН') || (dealType==='Продажа' && objectType==='здание')",
           type: "string",
         },
         {
           name: "Год постройки",
           iblockName: "NEW_PROP_18",
           display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа') || (objectType === 'здание' && dealType === 'Продажа')",
+            "(dealType==='Аренда' && objectType==='офис') || (dealType==='Аренда' && objectType==='склад') || (dealType==='Аренда' && objectType==='производство') || (dealType==='Аренда' && objectType==='ПСН') || (dealType==='Аренда' && objectType==='здание') || (dealType==='Продажа' && objectType==='офис') || (dealType==='Продажа' && objectType==='склад') || (dealType==='Продажа' && objectType==='производство') || (dealType==='Продажа' && objectType==='ПСН') || (dealType==='Продажа' && objectType==='здание')",
           type: "number",
         },
         {
           name: "Тип здания",
           iblockName: "NEW_PROP_15",
           display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа') || (objectType === 'здание' && dealType === 'Продажа')",
+            "(dealType==='Аренда' && objectType==='офис') || (dealType==='Аренда' && objectType==='торговая площадь') || (dealType==='Аренда' && objectType==='склад') || (dealType==='Аренда' && objectType==='производство') || (dealType==='Аренда' && objectType==='ПСН') || (dealType==='Аренда' && objectType==='здание') || (dealType==='Продажа' && objectType==='офис') || (dealType==='Продажа' && objectType==='торговая площадь') || (dealType==='Продажа' && objectType==='склад') || (dealType==='Продажа' && objectType==='производство') || (dealType==='Продажа' && objectType==='ПСН') || (dealType==='Продажа' && objectType==='здание')",
           type: "select",
           options: [
             'Административное здание',
@@ -469,43 +380,36 @@ window.__form_widget_config = {
           name: "Класс здания",
           iblockName: "NEW_PROP_16",
           display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа') || (objectType === 'здание' && dealType === 'Продажа')",
+            "(dealType==='Аренда' && objectType==='офис') || (dealType==='Аренда' && objectType==='торговая площадь') || (dealType==='Аренда' && objectType==='склад') || (dealType==='Аренда' && objectType==='производство') || (dealType==='Аренда' && objectType==='здание') || (dealType==='Продажа' && objectType==='офис') || (dealType==='Продажа' && objectType==='торговая площадь') || (dealType==='Продажа' && objectType==='склад') || (dealType==='Продажа' && objectType==='производство') || (dealType==='Продажа' && objectType==='здание')",
           type: "select",
           options: ['А+', 'А', 'В+', 'В', 'В-', 'С']
         },
         {
           name: "Действующее",
           iblockName: "",
-          display: "true",
+          display: "true", // TODO: ????
           type: "switch"
         },
         {
           name: "Площадь здания",
           iblockName: "NEW_PROP_69",
           display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа') || (objectType === 'здание' && dealType === 'Продажа')",
-          type: "string",
+            "(dealType==='Аренда' && objectType==='офис') || (dealType==='Аренда' && objectType==='торговая площадь') || (dealType==='Аренда' && objectType==='склад') || (dealType==='Аренда' && objectType==='производство') || (dealType==='Аренда' && objectType==='ПСН') || (dealType==='Аренда' && objectType==='здание') || (dealType==='Продажа' && objectType==='офис') || (dealType==='Продажа' && objectType==='торговая площадь') || (dealType==='Продажа' && objectType==='склад') || (dealType==='Продажа' && objectType==='производство') || (dealType==='Продажа' && objectType==='ПСН') || (dealType==='Продажа' && objectType==='здание')",
+          type: "number",
           units: "м2",
         },
         {
           name: "Линия",
           iblockName: "NEW_PROP_4",
           display:
-            "(objectType === 'здание' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'здание' && dealType === 'Продажа')",
+            "(dealType==='Аренда' && objectType==='здание') || (dealType==='Продажа' && objectType==='торговая площадь') || (dealType==='Продажа' && objectType==='здание')",
           type: "number",
-        },
-        {
-          name: "Девелопер",
-          iblockName: "",
-          display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа') || (objectType === 'здание' && dealType === 'Продажа')",
-          type: "string",
         },
         {
           name: "УК",
           iblockName: "NEW_PROP_71",
           display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа') || (objectType === 'здание' && dealType === 'Продажа')",
+            "(dealType==='Аренда' && objectType==='офис') || (dealType==='Аренда' && objectType==='торговая площадь') || (dealType==='Аренда' && objectType==='склад') || (dealType==='Аренда' && objectType==='производство') || (dealType==='Аренда' && objectType==='ПСН') || (dealType==='Аренда' && objectType==='здание') || (dealType==='Продажа' && objectType==='офис') || (dealType==='Продажа' && objectType==='торговая площадь') || (dealType==='Продажа' && objectType==='склад') || (dealType==='Продажа' && objectType==='производство') || (dealType==='Продажа' && objectType==='ПСН') || (dealType==='Продажа' && objectType==='здание')",
           type: "string",
         },
       ],
@@ -518,7 +422,7 @@ window.__form_widget_config = {
           name: "Площадь ЗУ (соток)",
           iblockName: "NEW_PROP_41",
           display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа') || (objectType === 'здание' && dealType === 'Продажа')",
+            "(dealType==='Аренда' && objectType==='офис') || (dealType==='Аренда' && objectType==='торговая площадь') || (dealType==='Аренда' && objectType==='склад') || (dealType==='Аренда' && objectType==='производство') || (dealType==='Аренда' && objectType==='ПСН') || (dealType==='Аренда' && objectType==='здание') || (dealType==='Аренда ' && objectType==='земля') || (dealType==='Продажа' && objectType==='офис') || (dealType==='Продажа' && objectType==='торговая площадь') || (dealType==='Продажа' && objectType==='склад') || (dealType==='Продажа' && objectType==='производство') || (dealType==='Продажа' && objectType==='ПСН') || (dealType==='Продажа' && objectType==='здание') || (dealType==='Продажа' && objectType==='земля')",
           type: "number",
           units: "сот.",
         },
@@ -526,15 +430,21 @@ window.__form_widget_config = {
           name: "Права на ЗУ",
           iblockName: "NEW_PROP_70",
           display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа') || (objectType === 'здание' && dealType === 'Продажа')",
+            "(dealType==='Аренда' && objectType==='офис') || (dealType==='Аренда' && objectType==='торговая площадь') || (dealType==='Аренда' && objectType==='склад') || (dealType==='Аренда' && objectType==='производство') || (dealType==='Аренда' && objectType==='ПСН') || (dealType==='Аренда' && objectType==='здание') || (dealType==='Аренда ' && objectType==='земля') || (dealType==='Продажа' && objectType==='офис') || (dealType==='Продажа' && objectType==='торговая площадь') || (dealType==='Продажа' && objectType==='склад') || (dealType==='Продажа' && objectType==='производство') || (dealType==='Продажа' && objectType==='ПСН') || (dealType==='Продажа' && objectType==='здание') || (dealType==='Продажа' && objectType==='земля')",
           type: "string",
         },
         {
-          name: "Категория",
+          name: "Категория ЗУ",
           iblockName: "NEW_PROP_42",
           display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа') || (objectType === 'здание' && dealType === 'Продажа')",
+            "(dealType==='Аренда' && objectType==='офис') || (dealType==='Аренда' && objectType==='торговая площадь') || (dealType==='Аренда' && objectType==='склад') || (dealType==='Аренда' && objectType==='производство') || (dealType==='Аренда' && objectType==='ПСН') || (dealType==='Аренда' && objectType==='здание') || (dealType==='Аренда ' && objectType==='земля') || (dealType==='Продажа' && objectType==='офис') || (dealType==='Продажа' && objectType==='торговая площадь') || (dealType==='Продажа' && objectType==='склад') || (dealType==='Продажа' && objectType==='производство') || (dealType==='Продажа' && objectType==='ПСН') || (dealType==='Продажа' && objectType==='здание') || (dealType==='Продажа' && objectType==='земля')",
           type: "string",
+        },
+        {
+          name: "NEW_PROP_43",
+          label: "Вид разрешенного использования ЗУ",
+          type: "список",
+          display: "false" // TODO: это поле не прописано в таблице
         },
       ],
     },
@@ -548,10 +458,10 @@ window.__form_widget_config = {
       name: "description",
       fields: [
         {
-          name: "Фото",
+          name: "Фотографии",
           iblockName: "",
           display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа') || (objectType === 'здание' && dealType === 'Продажа') || (objectType === 'готовый бизнес' && dealType === 'Продажа')",
+            "(dealType==='Аренда' && objectType==='офис') || (dealType==='Аренда' && objectType==='торговая площадь') || (dealType==='Аренда' && objectType==='склад') || (dealType==='Аренда' && objectType==='производство') || (dealType==='Аренда' && objectType==='ПСН') || (dealType==='Аренда' && objectType==='здание') || (dealType==='Аренда ' && objectType==='земля') || (dealType==='Продажа' && objectType==='офис') || (dealType==='Продажа' && objectType==='торговая площадь') || (dealType==='Продажа' && objectType==='склад') || (dealType==='Продажа' && objectType==='производство') || (dealType==='Продажа' && objectType==='ПСН') || (dealType==='Продажа' && objectType==='здание') || (dealType==='Продажа' && objectType==='земля') || (dealType==='Продажа' && objectType==='Арендный бизнес')",
           type: "image",
           sm: 6,
         },
@@ -559,7 +469,7 @@ window.__form_widget_config = {
           name: "Видео",
           iblockName: "NEW_PROP_87",
           display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа') || (objectType === 'здание' && dealType === 'Продажа') || (objectType === 'готовый бизнес' && dealType === 'Продажа')",
+            "(dealType==='Аренда' && objectType==='офис') || (dealType==='Аренда' && objectType==='торговая площадь') || (dealType==='Аренда' && objectType==='склад') || (dealType==='Аренда' && objectType==='производство') || (dealType==='Аренда' && objectType==='ПСН') || (dealType==='Аренда' && objectType==='здание') || (dealType==='Аренда ' && objectType==='земля') || (dealType==='Продажа' && objectType==='офис') || (dealType==='Продажа' && objectType==='торговая площадь') || (dealType==='Продажа' && objectType==='склад') || (dealType==='Продажа' && objectType==='производство') || (dealType==='Продажа' && objectType==='ПСН') || (dealType==='Продажа' && objectType==='здание') || (dealType==='Продажа' && objectType==='земля') || (dealType==='Продажа' && objectType==='Арендный бизнес')",
           type: "video",
           sm: 6,
         },
@@ -567,7 +477,7 @@ window.__form_widget_config = {
           name: "Описание",
           iblockName: "NEW_PROP_88",
           display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа') || (objectType === 'здание' && dealType === 'Продажа') || (objectType === 'готовый бизнес' && dealType === 'Продажа')",
+            "(dealType==='Аренда' && objectType==='офис') || (dealType==='Аренда' && objectType==='торговая площадь') || (dealType==='Аренда' && objectType==='склад') || (dealType==='Аренда' && objectType==='производство') || (dealType==='Аренда' && objectType==='ПСН') || (dealType==='Аренда' && objectType==='здание') || (dealType==='Аренда ' && objectType==='земля') || (dealType==='Продажа' && objectType==='офис') || (dealType==='Продажа' && objectType==='торговая площадь') || (dealType==='Продажа' && objectType==='склад') || (dealType==='Продажа' && objectType==='производство') || (dealType==='Продажа' && objectType==='ПСН') || (dealType==='Продажа' && objectType==='здание') || (dealType==='Продажа' && objectType==='земля') || (dealType==='Продажа' && objectType==='Арендный бизнес')",
           type: "string",
           sm: 12,
           inputProps: {
@@ -582,40 +492,28 @@ window.__form_widget_config = {
       name: "other",
       fields: [
         {
-          name: "Часы работы",
-          iblockName: "",
-          display:
-            "(objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Продажа')",
-          type: "time-range",
-        },
-        {
-          name: "Дни недели",
-          iblockName: "",
-          display:
-            "(objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Продажа')",
-          type: "week-range",
-        },
-        {
           name: "Месячная прибыль",
           iblockName: "NEW_PROP_75",
           display:
-            "(objectType === 'готовый бизнес' && dealType === 'Продажа')",
+            "(dealType==='Продажа' && objectType==='Арендный бизнес')",
           type: "number",
           inputProps: { min: 0 },
           units: "₽",
         },
         {
-          name: "Арендная плата (тип)",
+          name: "Цена за объект",
           iblockName: "",
           display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа') || (objectType === 'здание' && dealType === 'Продажа')",
-          type: "string",
+            "(dealType==='Аренда' && objectType==='офис') || (dealType==='Аренда' && objectType==='торговая площадь') || (dealType==='Аренда' && objectType==='склад') || (dealType==='Аренда' && objectType==='производство') || (dealType==='Аренда' && objectType==='ПСН') || (dealType==='Аренда' && objectType==='здание') || (dealType==='Аренда ' && objectType==='земля') || (dealType==='Продажа' && objectType==='офис') || (dealType==='Продажа' && objectType==='торговая площадь') || (dealType==='Продажа' && objectType==='склад') || (dealType==='Продажа' && objectType==='производство') || (dealType==='Продажа' && objectType==='ПСН') || (dealType==='Продажа' && objectType==='здание') || (dealType==='Продажа' && objectType==='земля') || (dealType==='Продажа' && objectType==='Арендный бизнес')",
+          type: "number",
+          inputProps: { min: 0 },
+          units: "₽",
         },
         {
-          name: "Арендная плата / Цена",
+          name: "Цена за кв.м.",
           iblockName: "",
           display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа') || (objectType === 'здание' && dealType === 'Продажа') || (objectType === 'готовый бизнес' && dealType === 'Продажа')",
+            "(dealType==='Аренда' && objectType==='офис') || (dealType==='Аренда' && objectType==='торговая площадь') || (dealType==='Аренда' && objectType==='склад') || (dealType==='Аренда' && objectType==='производство') || (dealType==='Аренда' && objectType==='ПСН') || (dealType==='Аренда' && objectType==='здание') || (dealType==='Продажа' && objectType==='офис') || (dealType==='Продажа' && objectType==='торговая площадь') || (dealType==='Продажа' && objectType==='склад') || (dealType==='Продажа' && objectType==='производство') || (dealType==='Продажа' && objectType==='ПСН') || (dealType==='Продажа' && objectType==='здание')",
           type: "number",
           inputProps: { min: 0 },
           units: "₽",
@@ -624,7 +522,7 @@ window.__form_widget_config = {
           name: "Налог",
           iblockName: "NEW_PROP_76",
           display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда') || (objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа') || (objectType === 'здание' && dealType === 'Продажа') || (objectType === 'готовый бизнес' && dealType === 'Продажа')",
+            "(dealType==='Аренда' && objectType==='офис') || (dealType==='Аренда' && objectType==='торговая площадь') || (dealType==='Аренда' && objectType==='склад') || (dealType==='Аренда' && objectType==='производство') || (dealType==='Аренда' && objectType==='ПСН') || (dealType==='Аренда' && objectType==='здание') || (dealType==='Аренда ' && objectType==='земля') || (dealType==='Продажа' && objectType==='офис') || (dealType==='Продажа' && objectType==='торговая площадь') || (dealType==='Продажа' && objectType==='склад') || (dealType==='Продажа' && objectType==='производство') || (dealType==='Продажа' && objectType==='ПСН') || (dealType==='Продажа' && objectType==='здание') || (dealType==='Продажа' && objectType==='земля') || (dealType==='Продажа' && objectType==='Арендный бизнес')",
           type: "select",
           options: ["1", "2"],
         },
@@ -632,14 +530,14 @@ window.__form_widget_config = {
           name: "В ставку включены",
           iblockName: "NEW_PROP_77",
           display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда')",
+            "(dealType==='Аренда' && objectType==='офис') || (dealType==='Аренда' && objectType==='торговая площадь') || (dealType==='Аренда' && objectType==='склад') || (dealType==='Аренда' && objectType==='производство') || (dealType==='Аренда' && objectType==='ПСН') || (dealType==='Аренда' && objectType==='здание')",
           type: "string",
         },
         {
           name: "Тип аренды",
           iblockName: "NEW_PROP_78",
           display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда')",
+            "(dealType==='Аренда' && objectType==='офис') || (dealType==='Аренда' && objectType==='торговая площадь') || (dealType==='Аренда' && objectType==='склад') || (dealType==='Аренда' && objectType==='производство') || (dealType==='Аренда' && objectType==='ПСН') || (dealType==='Аренда' && objectType==='здание')",
           type: "select",
           options: ["1", "2"],
         },
@@ -647,7 +545,7 @@ window.__form_widget_config = {
           name: "Срок аренды",
           iblockName: "NEW_PROP_52",
           display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда')",
+            "(dealType==='Аренда' && objectType==='офис') || (dealType==='Аренда' && objectType==='торговая площадь') || (dealType==='Аренда' && objectType==='склад') || (dealType==='Аренда' && objectType==='производство') || (dealType==='Аренда' && objectType==='ПСН') || (dealType==='Аренда' && objectType==='здание')",
           type: "number",
           inputProps: { min: 0 },
           units: "мес.",
@@ -656,7 +554,7 @@ window.__form_widget_config = {
           name: "Арендные каникулы",
           iblockName: "NEW_PROP_48",
           display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда')",
+            "(dealType==='Аренда' && objectType==='офис') || (dealType==='Аренда' && objectType==='торговая площадь') || (dealType==='Аренда' && objectType==='склад') || (dealType==='Аренда' && objectType==='производство') || (dealType==='Аренда' && objectType==='ПСН') || (dealType==='Аренда' && objectType==='здание')",
           type: "number",
           inputProps: { min: 0 },
           units: "мес.",
@@ -665,7 +563,7 @@ window.__form_widget_config = {
           name: "Обеспечительный платеж",
           iblockName: "NEW_PROP_46",
           display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда')",
+            "(dealType==='Аренда' && objectType==='офис') || (dealType==='Аренда' && objectType==='торговая площадь') || (dealType==='Аренда' && objectType==='склад') || (dealType==='Аренда' && objectType==='производство') || (dealType==='Аренда' && objectType==='ПСН') || (dealType==='Аренда' && objectType==='здание')",
           type: "number",
           inputProps: {
             min: 0,
@@ -674,209 +572,192 @@ window.__form_widget_config = {
           units: "₽",
         },
         {
-          name: "Предоплата",
+          name: "Предоплата, мес",
           iblockName: "NEW_PROP_79",
           display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда')",
+            "(dealType==='Аренда' && objectType==='офис') || (dealType==='Аренда' && objectType==='торговая площадь') || (dealType==='Аренда' && objectType==='склад') || (dealType==='Аренда' && objectType==='производство') || (dealType==='Аренда' && objectType==='ПСН') || (dealType==='Аренда' && objectType==='здание')",
           type: "select",
           options: ["1", "2"],
-        },
-        {
-          name: "Процент от клиента",
-          iblockName: "",
-          display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда')",
-          type: "number",
-          inputProps: { min: 0 },
-          units: "%",
-        },
-        {
-          name: "Процент от другого агента",
-          iblockName: "",
-          display:
-            "(objectType === 'офис' && dealType === 'Аренда') || (objectType === 'торговая площадь' && dealType === 'Аренда') || (objectType === 'склад' && dealType === 'Аренда') || (objectType === 'производство' && dealType === 'Аренда') || (objectType === 'ПСН' && dealType === 'Аренда') || (objectType === 'здание' && dealType === 'Аренда')",
-          type: "number",
-          inputProps: { min: 0 },
-          units: "%",
         },
         {
           name: "Тип договора",
           iblockName: "NEW_PROP_80",
           display:
-            "(objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа') || (objectType === 'здание' && dealType === 'Продажа')",
+            "(dealType==='Аренда ' && objectType==='земля') || (dealType==='Продажа' && objectType==='офис') || (dealType==='Продажа' && objectType==='торговая площадь') || (dealType==='Продажа' && objectType==='склад') || (dealType==='Продажа' && objectType==='производство') || (dealType==='Продажа' && objectType==='ПСН') || (dealType==='Продажа' && objectType==='здание') || (dealType==='Продажа' && objectType==='земля')",
           type: "string",
-        },
-        {
-          name: "Бонус агенту",
-          iblockName: "",
-          display:
-            "(objectType === 'офис' && dealType === 'Продажа') || (objectType === 'торговая площадь' && dealType === 'Продажа') || (objectType === 'склад' && dealType === 'Продажа') || (objectType === 'производство' && dealType === 'Продажа') || (objectType === 'ПСН' && dealType === 'Продажа') || (objectType === 'здание' && dealType === 'Продажа') || (objectType === 'готовый бизнес' && dealType === 'Продажа')",
-          type: "number",
-          inputProps: { min: 0 },
         },
         // infrastructure
         {
-          name: "Автомойка",
+          name: "Инфраструктура 1",
           iblockName: "",
-          type: "switch",
-          display: "dealType !== undefined"
+          type: "multi",
+          display: "true",
+          sm: 12,
+          fields: [
+            {
+              name: "Автомойка",
+              iblockName: "",
+              type: "switch",
+              display: "dealType !== undefined"
+            },
+            {
+              name: "Буфет",
+              iblockName: "",
+              type: "switch",
+              display: "dealType !== undefined"
+            },
+            {
+              name: "Автосервис",
+              iblockName: "",
+              type: "switch",
+              display: "dealType !== undefined"
+            },
+            {
+              name: "Столовая",
+              iblockName: "",
+              type: "switch",
+              display: "dealType !== undefined"
+            },
+            {
+              name: "Центральная рецепция",
+              iblockName: "",
+              type: "switch",
+              display: "dealType !== undefined"
+            },
+            {
+              name: "Гостиница",
+              iblockName: "",
+              type: "switch",
+              display: "dealType !== undefined"
+            },
+            {
+              name: "Банкомат",
+              iblockName: "",
+              type: "switch",
+              display: "dealType !== undefined"
+            },
+            {
+              name: "Выставочно-складской комплекс",
+              iblockName: "",
+              type: "switch",
+              display: "dealType !== undefined"
+            },
+            {
+              name: "Аптека",
+              iblockName: "",
+              type: "switch",
+              display: "dealType !== undefined"
+            },
+            {
+              name: "Отделение банка",
+              iblockName: "",
+              type: "switch",
+              display: "dealType !== undefined"
+            },
+            {
+              name: "Кинотеатр",
+              iblockName: "",
+              type: "switch",
+              display: "dealType !== undefined"
+            },
+            {
+              name: "Кафе",
+              iblockName: "",
+              type: "switch",
+              display: "dealType !== undefined"
+            },
+            {
+              name: "Медицинский центр",
+              iblockName: "",
+              type: "switch",
+              display: "dealType !== undefined"
+            },
+            {
+              name: "Салон красоты",
+              iblockName: "",
+              type: "switch",
+              display: "dealType !== undefined"
+            },
+            {
+              name: "Фотосалон",
+              iblockName: "",
+              type: "switch",
+              display: "dealType !== undefined"
+            },
+            {
+              name: "Нотариальная контора",
+              iblockName: "",
+              type: "switch",
+              display: "dealType !== undefined"
+            },
+            {
+              name: "Бассейн",
+              iblockName: "",
+              type: "switch",
+              display: "dealType !== undefined"
+            },
+            {
+              name: "Ателье одежды",
+              iblockName: "",
+              type: "switch",
+              display: "dealType !== undefined"
+            },
+            {
+              name: "Складские помещения",
+              iblockName: "",
+              type: "switch",
+              display: "dealType !== undefined"
+            },
+            {
+              name: "Парк",
+              iblockName: "",
+              type: "switch",
+              display: "dealType !== undefined"
+            },
+            {
+              name: "Ресторан",
+              iblockName: "",
+              type: "switch",
+              display: "dealType !== undefined"
+            },
+            {
+              name: "Фитнес-центр",
+              iblockName: "",
+              type: "switch",
+              display: "dealType !== undefined"
+            },
+            {
+              name: "Супермаркет",
+              iblockName: "",
+              type: "switch",
+              display: "dealType !== undefined"
+            },
+            {
+              name: "Минимаркет",
+              iblockName: "",
+              type: "switch",
+              display: "dealType !== undefined"
+            },
+            {
+              name: "Торговая зона",
+              iblockName: "",
+              type: "switch",
+              display: "dealType !== undefined"
+            },
+            {
+              name: "Конференц-зал",
+              iblockName: "",
+              type: "switch",
+              display: "dealType !== undefined"
+            }
+          ]
         },
-        {
-          name: "Буфет",
-          iblockName: "",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Автосервис",
-          iblockName: "",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Столовая",
-          iblockName: "",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Центральная рецепция",
-          iblockName: "",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Гостиница",
-          iblockName: "",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Банкомат",
-          iblockName: "",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Выставочно-складской комплекс",
-          iblockName: "",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Аптека",
-          iblockName: "",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Отделение банка",
-          iblockName: "",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Кинотеатр",
-          iblockName: "",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Кафе",
-          iblockName: "",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Медицинский центр",
-          iblockName: "",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Салон красоты",
-          iblockName: "",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Фотосалон",
-          iblockName: "",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Нотариальная контора",
-          iblockName: "",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Бассейн",
-          iblockName: "",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Ателье одежды",
-          iblockName: "",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Складские помещения",
-          iblockName: "",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Парк",
-          iblockName: "",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Ресторан",
-          iblockName: "",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Фитнес-центр",
-          iblockName: "",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Супермаркет",
-          iblockName: "",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Минимаркет",
-          iblockName: "",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Торговая зона",
-          iblockName: "",
-          type: "switch",
-          display: "dealType !== undefined"
-        },
-        {
-          name: "Конференц-зал",
-          iblockName: "",
-          type: "switch",
-          display: "dealType !== undefined"
-        }
       ],
     },
     {
       legend: "Внутренняя информация",
       name: "contacts",
-      display: "false", // TODO : этот раздел будем показывать только авторизованным "своим"
+      display: "true", // TODO : этот раздел будем показывать только авторизованным "своим"
       fields: [
         {
           sm: 6,

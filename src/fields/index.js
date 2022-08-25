@@ -8,6 +8,7 @@ import TextFieldWrapper from "./TextFieldWrapper";
 import SwitchWrapper from "./SwitchWrapper";
 import VideoInput from "./VideoInput";
 import ImageInput from "./ImageInput";
+import MultiWrapper from "./MultiWrapper";
 
 export function mapFields(fields, control, parameters, parametersValues) {
   return fields.map((field, fieldIndexInSection) => {
@@ -107,6 +108,18 @@ export function mapFields(fields, control, parameters, parametersValues) {
               control={control}
               options={field.options}
               display={display}
+            />
+          );
+        case "multi":
+          return (
+            <MultiWrapper
+              name={field.name || field.label}
+              label={field.label || field.name}
+              fields={field.fields}
+              control={control}
+              display={display}
+              parameters={parameters}
+              parametersValues={parametersValues}
             />
           );
         case undefined:

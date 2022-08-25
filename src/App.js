@@ -7,12 +7,9 @@ import Form from "./Form";
 import FieldSet from "./FieldSet";
 
 import { mapFields } from "./fields";
-import BX24 from "bx24-api";
 
 function App({ config }) {
   const [form, setForm] = React.useState();
-  const [user, setUser] = React.useState();
-  const [auth, setAuth] = React.useState();
 
   const {
     control,
@@ -26,20 +23,16 @@ function App({ config }) {
   }, [config]);
 
   React.useEffect(() => {
-    // Get data from bitrix 24 API after the component have been mounted
-
-    BX24.callMethod('user.get').then(result => {
-      const userData = result.data();
-      setUser(userData);
-      console.log('BITRIX USER : ', userData);
-    });
-
-    BX24.getAuth().then(result => {
-      const auth = result.data();
-      setAuth(auth);
-      //console.log('BITRIX AUTH DATA : ', userData);
-    })
-  }, [])
+    if (form !== undefined) {
+      console.log(form.parameters)
+      const subscription = watch((value, { name, type }) => {
+        if (form.parameters.includes(name)) {
+          console.log(value, name, type);
+        }
+      })
+      return () => subscription.unsubscribe();
+    }
+  }, [watch, form]);
 
   if (form === undefined) {
     return (
@@ -53,6 +46,7 @@ function App({ config }) {
     form.onSubmit(data);
   };
 
+  // TODO : using of watch causes rerenders
   const parametersValues = watch(form.parameters);
 
   return (

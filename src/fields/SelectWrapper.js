@@ -11,7 +11,7 @@ function SelectWrapper({ control, label, name, options, display }) {
     // нужно поменять значение field на то же самое
     // чтобы вызвать ререндер зависимых полей
     field.onChange(field.value || options[0]);
-  }, [display, field, options]);
+  }, [display, options]);
 
   return (
     <FormControl fullWidth disabled={!display}>
