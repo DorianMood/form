@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Controller, useController } from "react-hook-form";
-import { FormControlLabel } from '@mui/material';
+import { useController } from "react-hook-form";
+import { Grid, Typography } from '@mui/material';
 import { mapFields } from '.';
 
 export default function MultiWrapper({ name, label, fields, control, display, parameters, parametersValues }) {
@@ -8,5 +8,12 @@ export default function MultiWrapper({ name, label, fields, control, display, pa
   const { field } = useController({ control, name, display });
   const controls = mapFields(fields, control, parameters, parametersValues);
 
-  return (<>{controls}</>);
+  return (
+    <>
+      <Typography variant="subtitle1">{label}</Typography>
+      <Grid container={true}>
+        {controls}
+      </Grid>
+    </>
+  );
 }
